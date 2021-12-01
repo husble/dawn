@@ -6,8 +6,10 @@
   position: absolute;
   min-width: 100%;
   width: 20rem;
-  border: 1px solid rgba(var(--color-foreground), 0.2);
   background-color: rgb(var(--color-background));
+  top: 59px;
+  left: 0;
+  visibility: hidden;
 }
 
 .list-menu--disclosure:focus {
@@ -24,4 +26,18 @@
   overflow: auto;
   width: 10rem;
   padding: 0.5rem;
+}
+
+.list-menu-item-first a {
+  text-decoration: none;
+  padding: 8px 15px;
+}
+
+.list-menu-item-first:hover a {
+  text-decoration: underline;
+}
+
+.list-menu-item:hover .list-menu--disclosure {
+  visibility: visible;
+  padding: 10px 0px;
 }
