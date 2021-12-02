@@ -256,6 +256,9 @@
       "view_all": "View all",
       "view_all_label": "View all products in the {{ collection_name }} collection"
     },
+    "featured_collections": {
+      "empty": "No collection found"
+    },
     "collection_list": {
       "view_all": "View all"
     },

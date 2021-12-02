@@ -15,7 +15,7 @@
     margin-bottom: calc(-5rem - var(--page-width-margin));
   }
 
-  .product-grid.negative-margin--small {
+  /* .product-grid.negative-margin--small {
     margin-bottom: calc(-1rem - var(--page-width-margin));
-  }
+  } */
 }

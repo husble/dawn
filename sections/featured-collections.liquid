@@ -1,0 +1,205 @@
+{%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
+
+  {% style %}
+  .collection-image img{
+    padding:{{ section.settings.collection_padding}}px;
+    object-fit:{{ section.settings.collection_object_fit}}
+  }
+  .collections-featured .grid-item{
+    padding:{{ section.settings.collection_padding_desktop}}px;
+  }
+  
+  @media only screen and (max-width:768px){
+    .collections-featured .grid-item{
+      padding:{{ section.settings.collection_padding_mobile}}px;
+    }
+  }
+  
+  {% endstyle %}
+  
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+      <div class="section-header">
+        <h2 class="section-header__title" style="color: {{ section.settings.title_color}}; {% if section.settings.header_center %}text-align:center;{% endif %}">{{ section.settings.title }}</h2>
+      </div>
+    {%- endif -%}
+  
+    <div class="new-grid collections-featured" data-view="{{ section.settings.number_feature_on_row }}">
+      {%- liquid
+        assign isEmpty = true
+        if section.blocks.size > 0
+          assign isEmpty = false
+        endif
+      -%}
+  
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign collection = collections[block.settings.collection]
+          render 'collection-grid-item', collection: collection, block: block
+        -%}
+      {%- endfor -%}
+  
+      {%- if isEmpty -%}
+        <div class="page-width">
+          <div class="rte">
+            {{ 'sections.featured_collections.empty' | t }}
+          </div>
+        </div>
+      {%- endif -%}
+  
+    </div>
+  </div>
+  
+  {%- if section.settings.divider -%}</div>{%- endif -%}
+  
+  {% schema %}
+    {
+      "name": "Collection list",
+      "class": "index-section",
+      "max_blocks": 18,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Popular categories"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Heading color",
+          "default": "#000000"
+        },
+        {
+          "type": "checkbox",
+          "id": "header_center",
+          "label": "Heading center"
+        },
+        {
+          "type": "checkbox",
+          "id": "divider",
+          "label": "Show section divider",
+          "default": false
+        },
+        {
+          "type": "number",
+          "id": "collection_padding_desktop",
+          "label": "Collection padding desktop (px)",
+          "default": 10
+        },
+        {
+          "type": "number",
+          "id": "collection_padding_mobile",
+          "label": "Collection padding mobile (px)",
+          "default": 5
+        },
+        {
+          "type": "select",
+          "id": "collection_object_fit",
+          "label": "Image fit type",
+          "default": "contain",
+          "options": [
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "cover",
+              "label": "Cover"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "number_feature_on_row",
+          "label": "number feature on row",
+          "default": "4-2",
+          "options": [
+            {
+              "value": "6-3",
+              "label": "Desktop: 6 - Mobile: 3"
+            },
+            {
+              "value": "6-2",
+              "label": "Desktop: 6 - Mobile: 2"
+            },
+            {
+              "value": "4-3",
+              "label": "Desktop: 4 - Mobile: 3"
+            },
+            {
+              "value": "4-2",
+              "label": "Desktop: 4 - Mobile: 2"
+            },
+            {
+              "value": "3-2",
+              "label": "Desktop: 3 - Mobile: 2"
+            },
+            {
+              "value": "3-1",
+              "label": "Desktop: 3 - Mobile: 1"
+            }
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "type": "collection",
+          "name": "Collection",
+          "settings": [
+            {
+              "id": "collection",
+              "type": "collection",
+              "label": "Collection",
+              "info": "Image source can be adjusted under Theme Settings > Collection Tiles"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Title",
+              "info": "Defaults to collection title"
+            },
+            {
+              "type": "image_picker",
+              "id": "image_cover",
+              "label": "Image cover"
+            },
+            {
+              "type": "range",
+              "id": "collection_image_border_radius",
+              "label": "Border radius",
+              "default": 0,
+              "min": 0,
+              "max": 50,
+              "step": 5,
+              "unit": "%"
+            }
+          ]
+        }
+      ],
+      "presets": [{
+        "name": "Collection list",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }]
+    }
+  {% endschema %}
+  

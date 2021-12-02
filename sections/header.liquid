@@ -17,12 +17,13 @@
 <style>
   header-drawer {
     justify-self: start;
-    margin-left: -1.2rem;
+    /* margin-left: -1.2rem; */
   }
 
-  @media screen and (min-width: 990px) {
+  @media screen and (min-width: 769px) {
     header-drawer {
       display: none;
+      flex: 0 0 100px;
     }
   }
 
@@ -560,6 +561,17 @@
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const headerDraw = this.querySelector('header-drawer')
+      const lineMenu = this.querySelector('.header__inline-menu')
+      if (scrollTop > 0 && window.innerWidth > 768) {
+        headerDraw.style.display = 'inline-block';
+        lineMenu.style.display = 'none'
+      } else {
+        if (window.innerWidth > 768) {
+          headerDraw.style.display = 'none'
+          lineMenu.style.display = 'block'
+        }
+      }
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
@@ -587,8 +599,8 @@
 
     hide() {
       this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
-      <!-- this.closeMenuDisclosure(); -->
-      <!-- this.closeSearchModal(); -->
+      this.closeMenuDisclosure();
+      this.closeSearchModal();
     }
 
     reveal() {

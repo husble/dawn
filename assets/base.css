@@ -853,7 +853,7 @@ summary::-webkit-details-marker {
 
 .title-wrapper-with-link {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-end;
   gap: 1rem;
   margin: 4rem 0 3rem;
@@ -987,6 +987,10 @@ summary::-webkit-details-marker {
   .grid--quarter-max.grid--4-col-desktop .grid__item {
     max-width: 25%;
   }
+
+  .grid--quarter-max.grid--5-col-desktop .grid__item {
+    max-width: 20%;
+  }
 }
 
 .grid--1-col .grid__item {
@@ -1027,6 +1031,11 @@ summary::-webkit-details-marker {
 }
 
 @media screen and (min-width: 990px) {
+
+  .grid--5-col-desktop .grid__item {
+    width: calc(20% - 1rem * 4 / 5);
+  }
+
   .grid--4-col-desktop .grid__item {
     width: calc(25% - 1rem * 3 / 4);
   }
