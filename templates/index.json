@@ -80,10 +80,50 @@
             "image_cover": "shopify:\/\/shop_images\/Greetng-card-banner.jpg",
             "collection_image_border_radius": 0
           }
+        },
+        "4b8a4fec-9e41-4aeb-a46e-fd4aff9614f2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "klkl",
+            "image_cover": "shopify:\/\/shop_images\/Greetng_card_banner3.jpg",
+            "collection_image_border_radius": 0
+          }
+        },
+        "dd52bf72-d072-442a-a06d-719ad679d6ff": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "hgfhgfh",
+            "image_cover": "shopify:\/\/shop_images\/10_8b246dfc-8c6f-4191-a8c3-48b60c853c0d.jpg",
+            "collection_image_border_radius": 0
+          }
+        },
+        "5792f293-2d90-4263-a81d-705ad4b01138": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "lpopl",
+            "image_cover": "shopify:\/\/shop_images\/10.jpg",
+            "collection_image_border_radius": 0
+          }
+        },
+        "43f7440e-82da-4842-b657-a71036b90826": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "fgfgdfg",
+            "image_cover": "shopify:\/\/shop_images\/Greetng_card_banner.jpg",
+            "collection_image_border_radius": 0
+          }
         }
       },
       "block_order": [
-        "5dd12871-8d3a-4f79-b5d5-9ebb3b3f6de5"
+        "5dd12871-8d3a-4f79-b5d5-9ebb3b3f6de5",
+        "4b8a4fec-9e41-4aeb-a46e-fd4aff9614f2",
+        "dd52bf72-d072-442a-a06d-719ad679d6ff",
+        "5792f293-2d90-4263-a81d-705ad4b01138",
+        "43f7440e-82da-4842-b657-a71036b90826"
       ],
       "settings": {
         "title": "Popular categories",
