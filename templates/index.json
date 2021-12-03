@@ -116,6 +116,14 @@
             "image_cover": "shopify:\/\/shop_images\/Greetng_card_banner.jpg",
             "collection_image_border_radius": 0
           }
+        },
+        "e74ce10d-6db9-49b7-ae85-25c85e2259d2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "vbvn",
+            "collection_image_border_radius": 5
+          }
         }
       },
       "block_order": [
@@ -123,7 +131,8 @@
         "4b8a4fec-9e41-4aeb-a46e-fd4aff9614f2",
         "dd52bf72-d072-442a-a06d-719ad679d6ff",
         "5792f293-2d90-4263-a81d-705ad4b01138",
-        "43f7440e-82da-4842-b657-a71036b90826"
+        "43f7440e-82da-4842-b657-a71036b90826",
+        "e74ce10d-6db9-49b7-ae85-25c85e2259d2"
       ],
       "settings": {
         "title": "Popular categories",
