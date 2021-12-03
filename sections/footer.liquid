@@ -369,6 +369,128 @@
   "name": "t:sections.footer.name",
   "blocks": [
     {
+      "type": "payment",
+      "name": "Payments and localization",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "payment_title",
+          "label": "Payment title",
+          "default": "We accept??"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_icons",
+          "label": "Show payment icons",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_locale_selector",
+          "label": "Show language selector",
+          "info": "To add a language, go to your [language settings.](/admin/settings/languages)",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_currency_selector",
+          "label": "Show currency selector",
+          "info": "To add a currency, go to your [currency settings.](/admin/settings/payments)",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Navigation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Defaults to menu title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Choose a menu",
+          "default": "footer",
+          "info": "This menu will only show top-level links"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_account_link",
+          "label": "Add 'My account' link if customer accounts enabled"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact and social",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Contact"
+        },
+        {
+          "type": "text",
+          "id": "contact_title",
+          "label": "Contact title",
+          "default": "Get in Touch"
+        },
+        {
+          "type": "text",
+          "id": "email_name",
+          "label": "Email",
+          "default": "support@familygifts.co"
+        },
+        {
+          "type": "checkbox",
+          "id": "email_bold",
+          "label": "Is Bold Email?",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>1968 S. Coast Hwy, Suite 5678, Laguna Beach CA 92651, United States</p>"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone number"
+        },
+        {
+          "type": "checkbox",
+          "id": "phone_bold",
+          "label": "Is Bold Phone number?",
+          "default": true
+        },
+        {
+          "type": "page",
+          "id": "contact",
+          "label": "Contact page"
+        },
+        {
+          "type": "page",
+          "id": "chat",
+          "label": "Chat link"
+        },
+        {
+          "type": "header",
+          "content": "Social"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_social",
+          "label": "Show social accounts",
+          "default": true
+        }
+      ]
+    },
+    {
       "type": "link_list",
       "name": "t:sections.footer.blocks.link_list.name",
       "settings": [
@@ -550,3 +672,51 @@
   }
 }
 {% endschema %}
+
+
+<!-- <footer class="site-footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
+  <div id="FooterMenus" class="footer__section footer__section--menus">
+    <div class="page-width">
+      <div class="footer__blocks">
+        {%- for block in section.blocks -%}
+          <div {{ block.shopify_attributes }} class="footer__block" data-type="{{ block.type }}">
+            {%- liquid
+              case block.type
+                when 'menu'
+                  render 'footer-menu', block: block
+                when 'payment'
+                  render 'footer-payments', block: block
+                  render 'currencies-switcher', block: block
+                when 'contact'
+                  render 'footer-contact', block: block
+              endcase
+            -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__section">
+    <div class="page-width text-center small--text-left">
+      <div class="footer__base-links">
+        {%- if section.settings.show_copyright -%}
+          <span>
+            &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
+            {%- if section.settings.copyright_text != blank -%}
+              {{ section.settings.copyright_text }}
+            {%- endif -%}
+          </span>
+        {%- endif -%}
+        {%- if linklists[section.settings.policies_menu].links.size > 0 -%}
+          {%- for link in linklists[section.settings.policies_menu].links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        {%- endif -%}
+
+        {{ powered_by_link }}
+      </div>
+    </div>
+  </div>
+</footer> -->
+
