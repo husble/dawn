@@ -13,7 +13,6 @@ customElements.define('cart-remove-button', CartRemoveButton);
 class CartItems extends HTMLElement {
   constructor() {
     super();
-
     this.lineItemStatusElement = document.getElementById('shopping-cart-line-item-status');
 
     this.currentItemCount = Array.from(this.querySelectorAll('[name="updates[]"]'))

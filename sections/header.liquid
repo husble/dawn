@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
-
+<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
@@ -62,6 +62,44 @@
     padding-bottom: 1rem;
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
+  }
+
+  .site-header__drawer-animate {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    background-color: #fff;
+    width: 470px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 15%);
+    z-index: 999;
+    max-height: 556px;
+    display: none;
+  }
+  .site-header__drawer-animate.open {
+    display: block;
+  }
+
+  .header__icon--cart .wrap__cart__open {
+    display: flex;
+  }
+  .header__icon--cart.open .wrap__cart__open {
+    display: none;
+  }
+
+  .header__icon--cart .wrap__cart__close {
+    display: none;
+  }
+
+  .header__icon--cart .wrap__cart__close button {
+    color: #000;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .header__icon--cart.open .wrap__cart__close {
+    display: block;
   }
 
   @media screen and (min-width: 750px) {
@@ -443,24 +481,34 @@
           </a>
         {%- endif -%}
 
-        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-          {%- liquid
-            if cart == empty
-              render 'icon-cart-empty'
-            else
-              render 'icon-cart'
-            endif
-          -%}
-          <span class="cart-title" style="margin-left: 10px;">{{ 'templates.cart.cart' | t }}</span>
-          {%- if cart != empty -%}
-            <div class="cart-count-bubble">
-              {%- if cart.item_count < 100 -%}
-                <span aria-hidden="true">{{ cart.item_count }}</span>
-              {%- endif -%}
-              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-            </div>
-          {%- endif -%}
-        </a>
+        <div class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+          <div class="wrap__cart__open">
+            {%- liquid
+              if cart == empty
+                render 'icon-cart-empty'
+              else
+                render 'icon-cart'
+              endif
+            -%}
+            <span class="cart-title" style="margin-left: 10px;">{{ 'templates.cart.cart' | t }}</span>
+            {%- if cart != empty -%}
+              <div class="cart-count-bubble">
+                {%- if cart.item_count < 100 -%}
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                {%- endif -%}
+                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+          <div class="wrap__cart__close">
+            <button type="button" class="site-nav__link site-nav__link--icon js-close-header-cart">
+              <svg style="width: 4rem; height: 4rem;" aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"></path></svg>
+            </button>
+          </div>
+          <div class="site-header__drawer-animate">
+            {%- render 'header-cart-drawer' -%}
+          </div>
+        </div>
       </div>
     </div>
     {%- if section.settings.menu != blank -%}
@@ -542,6 +590,21 @@
   
         searchMobile.classList.remove('open')
         itemS.classList.remove('open')
+      })
+
+      <!-- handle toggle cart -->
+      const cart = this.querySelector(".header__icon--cart");
+      const modalCart = this.querySelector(".site-header__drawer-animate")
+      const openCart = this.querySelector(".wrap__cart__open")
+      const closeCart = this.querySelector(".wrap__cart__close")
+      openCart.addEventListener('click', () => {
+        modalCart.classList.toggle("open")
+        cart.classList.toggle('open')
+      })
+
+      closeCart.addEventListener('click', () => {
+        modalCart.classList.toggle("open")
+        cart.classList.toggle('open')
       })
     }
 
