@@ -5,8 +5,21 @@
     padding:{{ section.settings.collection_padding}}px;
     object-fit:{{ section.settings.collection_object_fit}}
   }
+
+  .collections-featured {
+    max-width: 100%;
+    padding: 0 5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   .collections-featured .grid-item{
     padding:{{ section.settings.collection_padding_desktop}}px;
+  }
+
+  .section-header__title {
+    text-align: center;
   }
   
   @media only screen and (max-width:768px){
@@ -16,7 +29,6 @@
   }
   
   {% endstyle %}
-  
   <div class="page-width">
     {%- if section.settings.title != blank -%}
       <div class="section-header">
@@ -33,10 +45,11 @@
       -%}
   
       {%- for block in section.blocks -%}
-        {%- liquid
-          assign collection = collections[block.settings.collection]
-          render 'collection-grid-item', collection: collection, block: block
-        -%}
+      
+      {%- liquid
+        assign collection = collections[block.settings.collection]
+        render 'collection-grid-item', collection: collection, block: block
+      -%}
       {%- endfor -%}
   
       {%- if isEmpty -%}
