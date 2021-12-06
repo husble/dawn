@@ -29,46 +29,6 @@
         "show_rating": false
       }
     },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "video": {
-          "type": "video",
-          "settings": {
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-            "description": "Describe the video",
-            "image_padding": false
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false,
-            "image_padding": false,
-            "secondary_background": false
-          }
-        },
-        "collection": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image_padding": false,
-            "color_scheme": "background-1"
-          }
-        }
-      },
-      "block_order": [
-        "video",
-        "product",
-        "collection"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "desktop_layout": "left",
-        "mobile_layout": "collage"
-      }
-    },
     "featured_collections": {
       "type": "featured-collections",
       "blocks": {
@@ -146,69 +106,48 @@
         "number_feature_on_row": "4-2"
       }
     },
-    "video": {
-      "type": "video",
+    "16387862430f3985d3": {
+      "type": "husble-customization",
       "settings": {
-        "heading": "Video",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false
+        "header": "How To Customize Yours?",
+        "header_color": "#000000",
+        "image_1": "shopify:\/\/shop_images\/2_2.png",
+        "title_1": "<p><strong>Step 1: Choose Product<\/strong><\/p>",
+        "detail_1": "<p><em>Choose the product you want to purchase.<\/em><\/p>",
+        "image_2": "shopify:\/\/shop_images\/8.png",
+        "title_2": "<p><strong>Step 2: Pick Your Buddies<\/strong><\/p>",
+        "detail_2": "<p><em>1000+ furry buddies are waiting to be added to your final gifts.<\/em><\/p>",
+        "image_3": "shopify:\/\/shop_images\/3_3.png",
+        "title_3": "<p><strong>Step 3: Place Your Order<\/strong><\/p>",
+        "detail_3": "<p><em>Let's add to cart, process payments and wait for the final gifts to knock on your door!<\/em><\/p>",
+        "url": "shopify:\/\/collections\/all",
+        "url_title": "Customize your now",
+        "link_btn": true,
+        "link_btn_color": "#ff8831"
       }
     },
-    "multi_column": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+    "1638786555013217d7": {
+      "type": "featured-collection",
       "settings": {
-        "title": "Multicolumn",
-        "image_width": "full",
+        "title": "Featured collection",
+        "collection": "",
+        "products_to_show": 5,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
         "image_ratio": "adapt",
-        "column_alignment": "left",
-        "background_style": "primary",
-        "button_label": "Button label",
-        "button_link": "",
-        "swipe_on_mobile": false
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
       }
     }
   },
   "order": [
     "image_banner",
     "featured_products",
-    "collage",
     "featured_collections",
-    "video",
-    "multi_column"
+    "16387862430f3985d3",
+    "1638786555013217d7"
   ]
 }
