@@ -1,5 +1,10 @@
 {
   "sections": {
+    "zp-product-header-content": {
+      "type": "product-header-content-zipifypages",
+      "settings": {
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -97,11 +102,18 @@
       "settings": {
         "include_margins": false
       }
+    },
+    "zp-product-footer-content": {
+      "type": "product-footer-content-zipifypages",
+      "settings": {
+      }
     }
   },
   "order": [
+    "zp-product-header-content",
     "main",
     "product-recommendations",
-    "loox-product-reviews-app-section"
+    "loox-product-reviews-app-section",
+    "zp-product-footer-content"
   ]
 }
