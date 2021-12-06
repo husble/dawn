@@ -129,8 +129,8 @@
     "1638786555013217d7": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
-        "collection": "",
+        "title": "GIFTS FOR DOG LOVERS",
+        "collection": "dog-lovers-gifts",
         "products_to_show": 5,
         "show_view_all": true,
         "swipe_on_mobile": false,
@@ -141,6 +141,48 @@
         "show_vendor": false,
         "show_rating": false
       }
+    },
+    "1638786611f269acec": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "GIFTS FOR CAT LOVERS",
+        "collection": "cat-lover-christmas-gifts",
+        "products_to_show": 5,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
+      }
+    },
+    "163878671924ba9984": {
+      "type": "apps",
+      "blocks": {
+        "939a8f7f-a654-44cc-b8d3-484f3a4fc2b0": {
+          "type": "shopify:\/\/apps\/loox-photo-reviews\/blocks\/loox-carousel-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "max_width": 1920,
+            "text_color": "#000000",
+            "background_color": "#ffffff",
+            "arrows_color": "#000000",
+            "dots_color": "#000000",
+            "button_color": "#000000",
+            "show_more": true,
+            "only_photos": false,
+            "use_widget_font": true,
+            "product_handle": ""
+          }
+        }
+      },
+      "block_order": [
+        "939a8f7f-a654-44cc-b8d3-484f3a4fc2b0"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -148,6 +190,8 @@
     "featured_products",
     "featured_collections",
     "16387862430f3985d3",
-    "1638786555013217d7"
+    "1638786555013217d7",
+    "1638786611f269acec",
+    "163878671924ba9984"
   ]
 }
