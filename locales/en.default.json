@@ -425,5 +425,24 @@
       "terms_confirm": "You must agree with the terms and conditions of sales to check out",
       "recommended_title": "Goes great with"
     }
+  },
+  "layout": {
+    "cart": {
+      "title": "Cart"
+    },
+    "customer": {
+      "account": "Account",
+      "log_out": "Log out",
+      "log_in": "Log in",
+      "create_account": "Create account"
+    },
+    "footer": {
+      "accepted_payments": "We accept",
+      "contact_title": "Get in touch",
+      "chat_link": "Live chat",
+      "email_link": "Email us",
+      "social_title": "Follow us",
+      "social_platform": "{{ name }} on {{ platform }}"
+    }
   }
 }

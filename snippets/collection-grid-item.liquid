@@ -41,6 +41,15 @@
     display: block;
     color: #000000;
   }
+
+  @media only screen and (max-width: 768px) {
+    [data-view="4-2"] .grid-item {
+        flex: 0 0 50%;
+    }
+    .collections-featured {
+      padding: 0;
+    }
+  }
 {% endstyle %}
 <div class="grid-item">
   <a href="{{ collection_link }}" class="collection-item">

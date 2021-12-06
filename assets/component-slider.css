@@ -31,6 +31,9 @@ slider-component {
     margin-bottom: 0;
     padding-bottom: 0;
   }
+  slider-component {
+    padding: 0 1rem;
+  }
 }
 
 @media screen and (max-width: 989px) {
