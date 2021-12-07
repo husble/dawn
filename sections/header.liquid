@@ -491,14 +491,16 @@
               endif
             -%}
             <span class="cart-title" style="margin-left: 10px;">{{ 'templates.cart.cart' | t }}</span>
-            {%- if cart != empty -%}
-              <div class="cart-count-bubble">
-                {%- if cart.item_count < 100 -%}
-                  <span aria-hidden="true">{{ cart.item_count }}</span>
-                {%- endif -%}
-                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-              </div>
-            {%- endif -%}
+            <div class="js-cart">
+              {%- if cart != empty -%}
+                <div class="cart-count-bubble">
+                  {%- if cart.item_count < 100 -%}
+                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                  {%- endif -%}
+                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </div>
+              {%- endif -%}
+            </div>
           </div>
           <div class="wrap__cart__close">
             <button type="button" class="site-nav__link site-nav__link--icon js-close-header-cart">
@@ -552,7 +554,7 @@
   </header>
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
 
-{%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
+<!-- {%- render 'cart-notification', color_scheme: section.settings.color_scheme -%} -->
 
 {% javascript %}
   class StickyHeader extends HTMLElement {
@@ -598,6 +600,11 @@
       const openCart = this.querySelector(".wrap__cart__open")
       const closeCart = this.querySelector(".wrap__cart__close")
       openCart.addEventListener('click', () => {
+        if (window.location.pathname === '/cart') {
+          window.location.href = '/cart'
+          return
+        }
+
         modalCart.classList.toggle("open")
         cart.classList.toggle('open')
       })
