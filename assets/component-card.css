@@ -175,7 +175,8 @@
 }
 
 .card-information__wrapper {
-  width: 100%;
+  width: 90%;
+  margin: 0 14px 20px;
 }
 
 .card-information__wrapper > * {
@@ -207,6 +208,7 @@
   flex-direction: column;
   position: relative;
   text-decoration: none;
+  background-color: #f8f8f8;
 }
 
 .card-wrapper .card-information {

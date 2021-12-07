@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+{% include 'kiwiSizing' %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -31,7 +32,7 @@
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    {{ content_for_header }}
+    {% render 'header-scripts.zipifypages', renderctx: 'thm' %}{{ content_for_header }}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -174,6 +175,7 @@
     {%- endif -%}
   
 	{{ shop.metafields.loox["global_html_body"] }}
+  {% render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: ocuapp %}</body>
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 </body>
 </html>

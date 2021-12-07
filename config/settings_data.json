@@ -9,6 +9,8 @@
     "colors_background_2": "#F3F3F3",
     "type_header_font": "assistant_n4",
     "type_body_font": "assistant_n4",
+    "social_facebook_link": "https:\/\/www.facebook.com\/pawsionatecom",
+    "social_instagram_link": "https:\/\/www.instagram.com\/pawsionate\/",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -43,33 +45,51 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "footer-0": {
-            "type": "link_list",
+          "2d90410b-b32d-4b6f-82ff-9342a64b82eb": {
+            "type": "menu",
             "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
+              "title": "",
+              "menu": "footer",
+              "enable_account_link": false
             }
           },
-          "footer-1": {
-            "type": "text",
+          "6c317458-1226-41ae-8af6-d1f863fcc408": {
+            "type": "contact",
             "settings": {
-              "heading": "Heading",
-              "subtext": "<p>Share store details, promotions, or brand content with your customers.<\/p>"
+              "contact_title": "Contact Us",
+              "email_name": "",
+              "email_bold": false,
+              "description": "<p><strong>Address:<\/strong>1968 S. Coast Hwy, Suite 5678, Laguna Beach CA 92651, United States<br\/><br\/><strong>Email:<\/strong>support@pawsionate.com<\/p>",
+              "phone": "",
+              "phone_bold": false,
+              "contact": "",
+              "chat": "",
+              "enable_social": true
+            }
+          },
+          "c1bc1dc9-56b9-4c57-af98-1c25c89e6f20": {
+            "type": "payment",
+            "settings": {
+              "payment_title": "We accept??",
+              "show_payment_icons": true,
+              "show_locale_selector": true,
+              "show_currency_selector": true
             }
           }
         },
         "block_order": [
-          "footer-0",
-          "footer-1"
+          "2d90410b-b32d-4b6f-82ff-9342a64b82eb",
+          "6c317458-1226-41ae-8af6-d1f863fcc408",
+          "c1bc1dc9-56b9-4c57-af98-1c25c89e6f20"
         ],
         "settings": {
           "color_scheme": "background-1",
-          "newsletter_enable": true,
+          "newsletter_enable": false,
           "newsletter_heading": "Subscribe to our emails",
           "show_social": false,
-          "enable_country_selector": true,
-          "enable_language_selector": true,
-          "payment_enable": true
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "payment_enable": false
         }
       }
     },

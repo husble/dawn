@@ -1,0 +1,194 @@
+<style>
+    .husble-customization__containter{
+        width: 100%;
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .husble-customization__title{
+        margin-bottom: 30px;
+        text-align: center;
+        color: {{ section.settings.header_color }}
+    }
+    .husble-customization__box{
+        flex: 0 0 33%;
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+    .husble-customization__content{
+        text-align: center;
+    }
+    .husble-customization__content__title{
+        margin: 20px 0;
+    }
+    .husble-customization__content__image{
+        display: flex;
+        justify-content: center;
+    }
+    .customization-step-image{
+        width: 100%;
+        max-width: 200px;
+    }
+    .husble-customization-btn{
+        margin: 0 auto;
+    }
+    .flex--center--no-align {
+        display: flex;
+        justify-content: center;
+    }
+    @media screen and (max-width: 768px){
+        .husble-customization__containter{
+            flex-direction: column;
+        }
+        .husble-customization__box{
+            flex: 0 0 100%;
+            flex-direction: row;
+            padding: 0;
+            align-items: center;
+        }
+        .husble-customization__content__image, .husble-customization__content{
+            flex: 0 0 50%;
+        }
+    }
+</style>
+
+
+<div class="page-width">
+    <h2 class="husble-customization__title">{{ section.settings.header }}</h2>
+    <div class="husble-customization__containter">
+        <div class="husble-customization__box">
+            <div class="husble-customization__content__image">
+                <img src="{{ section.settings.image_1 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
+            </div>
+            <div class="husble-customization__content">
+                <div class="husble-customization__content__title"> {{section.settings.title_1}} </div>
+                <div class="husble-customization__content__detail"> {{section.settings.detail_1}} </div>
+            </div>
+        </div>
+        <div class="husble-customization__box">
+            <div class="husble-customization__content__image">
+                <img src="{{ section.settings.image_2 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
+            </div>
+            <div class="husble-customization__content">
+                <div class="husble-customization__content__title"> {{section.settings.title_2}} </div>
+                <div class="husble-customization__content__detail"> {{section.settings.detail_2}} </div>
+            </div>
+        </div>
+        <div class="husble-customization__box">
+            <div class="husble-customization__content__image">
+                <img src="{{ section.settings.image_3 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
+            </div>
+            <div class="husble-customization__content">
+                <div class="husble-customization__content__title"> {{section.settings.title_3}} </div>
+                <div class="husble-customization__content__detail"> {{section.settings.detail_3}} </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex--center--no-align">
+        <a href="{{ section.settings.url }}" 
+            class="{% if section.settings.link_btn %}btn button{% else %}section-header__link{% endif %}"
+            style="{% if section.settings.link_btn %}background-color: {{section.settings.link_btn_color}}{% endif %}"
+            >{{section.settings.url_title}}</a>
+    </div>
+</h2>
+
+{% schema %}
+{
+    "name": "Husble Tutorials",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "How To Customize Yours?"
+        },
+        {
+            "type": "color",
+            "id": "header_color",
+            "label": "Header color",
+            "default": "#000000"
+        },
+      {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image Customization 1"
+      },
+      {
+        "type": "richtext",
+        "id": "title_1",
+        "label": "Title 1",
+        "default": "<p>Step 1: bla bla</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "detail_1",
+        "label": "Detail 1",
+        "default": "<p>bla bla bla bla</p>"
+      },
+      {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image Customization 2"
+      },
+      {
+        "type": "richtext",
+        "id": "title_2",
+        "label": "Title 2",
+        "default": "<p>Step 2: bla bla</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "detail_2",
+        "label": "Detail 2",
+        "default": "<p>bla bla bla bla</p>"
+      },
+      {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image Customization 3"
+      },
+      {
+        "type": "richtext",
+        "id": "title_3",
+        "label": "Title 3",
+        "default": "<p>Step 3: bla bla</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "detail_3",
+        "label": "Detail 3",
+        "default": "<p>bla bla bla bla</p>"
+      },
+      {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+      },
+      {
+          "type": "text",
+          "id": "url_title",
+          "label": "Link",
+          "default": "Customize your now"
+      },
+      {
+        "type": "checkbox",
+        "id": "link_btn",
+        "label": "is Button?",
+        "default": false
+      },
+      {
+        "type": "color",
+        "id": "link_btn_color",
+        "label": "Button color",
+        "default": "#ff8831"
+      }
+    ],
+    "presets": [
+        {
+          "name": "Husble Tutorials"
+        }
+      ]
+  }
+{% endschema %}

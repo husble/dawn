@@ -27,7 +27,7 @@
             assign footer_grid_class = 'grid--3-col-tablet'
           endif
         -%}
-        <div class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
+        <!-- <div class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
           {%- for block in section.blocks -%}
             <div class="footer-block grid__item{% if block.type == 'link_list' and block.settings.heading != blank %} footer-block--menu{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.heading != blank -%}
@@ -68,7 +68,23 @@
                       {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                     {%- endif -%}
                   </div>
-                {%- endcase -%}
+              {%- endcase -%}
+            </div>
+          {%- endfor -%}
+        </div> -->
+        <div class="footer__blocks">
+          {%- for block in section.blocks -%}
+            <div {{ block.shopify_attributes }} class="footer__block" data-type="{{ block.type }}">
+              {%- liquid
+                case block.type
+                  when 'menu'
+                    render 'footer-menu', block: block
+                  when 'payment'
+                    render 'footer-payments', block: block
+                  when 'contact'
+                    render 'footer-contact', block: block
+                endcase
+              -%}
             </div>
           {%- endfor -%}
         </div>
@@ -444,6 +460,128 @@
             }
           ],
           "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "payment",
+      "name": "Payments and localization",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "payment_title",
+          "label": "Payment title",
+          "default": "We accept??"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_icons",
+          "label": "Show payment icons",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_locale_selector",
+          "label": "Show language selector",
+          "info": "To add a language, go to your [language settings.](/admin/settings/languages)",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_currency_selector",
+          "label": "Show currency selector",
+          "info": "To add a currency, go to your [currency settings.](/admin/settings/payments)",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Navigation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Defaults to menu title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Choose a menu",
+          "default": "footer",
+          "info": "This menu will only show top-level links"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_account_link",
+          "label": "Add 'My account' link if customer accounts enabled"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact and social",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Contact"
+        },
+        {
+          "type": "text",
+          "id": "contact_title",
+          "label": "Contact title",
+          "default": "Get in Touch"
+        },
+        {
+          "type": "text",
+          "id": "email_name",
+          "label": "Email",
+          "default": "support@familygifts.co"
+        },
+        {
+          "type": "checkbox",
+          "id": "email_bold",
+          "label": "Is Bold Email?",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>1968 S. Coast Hwy, Suite 5678, Laguna Beach CA 92651, United States</p>"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone number"
+        },
+        {
+          "type": "checkbox",
+          "id": "phone_bold",
+          "label": "Is Bold Phone number?",
+          "default": true
+        },
+        {
+          "type": "page",
+          "id": "contact",
+          "label": "Contact page"
+        },
+        {
+          "type": "page",
+          "id": "chat",
+          "label": "Chat link"
+        },
+        {
+          "type": "header",
+          "content": "Social"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_social",
+          "label": "Show social accounts",
+          "default": true
         }
       ]
     }
