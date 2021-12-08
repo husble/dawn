@@ -48,7 +48,7 @@
 }
 
 .cart-item__quantity .quantity__button {
-  padding: 0 5px;
+  padding: 0 10px;
   border: 0;
   background-color: transparent;
   cursor: pointer;
@@ -94,6 +94,18 @@
 .cart-item__final-price {
   color: #fa3900;
   font-size: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .cart-item__final-price {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cart-item__final-price {
+    font-size: 14px;
+  }
 }
 
 /* css footer */

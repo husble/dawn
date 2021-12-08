@@ -134,6 +134,13 @@
     </a>
 
     <!-- {% section 'announcement-bar' %} -->
+    <div id="personalized-modal" class="personalized-modal" style="display: none;">
+  
+      <div class="personalized-modal__content">
+        <img class="personalized-modal__img" id="personalized-modal__img">
+        <span class="personalized-modal__close" id="personalized-modal__close">×</span>
+      </div> 
+    </div>
     {% section 'header' %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
@@ -177,5 +184,14 @@
 	{{ shop.metafields.loox["global_html_body"] }}
   {% render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: ocuapp %}</body>
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+      $('#personalized-modal__close').click(function() {
+        $("#personalized-modal").css({ "display": "none" })
+        document.body.classList.remove("disable-event")
+      })
+    });
+  
+  </script>
 </body>
 </html>

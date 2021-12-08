@@ -30,6 +30,36 @@ class CartItems extends HTMLElement {
   }
 
   getSectionsToRender() {
+    if (window.location.pathname === '/cart') {
+      return [
+        {
+          id: 'main-cart-footer',
+          section: 'header',
+          selector: '.js-contents-footer',
+        },
+        {
+          id: 'main-cart-items',
+          section: 'header',
+          selector: '.js-contents',
+        },
+        {
+          id: 'cart-icon-bubble',
+          section: 'header',
+          selector: '.js-cart',
+        },
+        {
+          id: 'main-cart-footer-page',
+          section: 'main-cart-items',
+          selector: '.js-contents-footer',
+        },
+        {
+          id: 'main-cart-items-page',
+          section: 'main-cart-items',
+          selector: '.js-contents',
+        },
+      ];
+    }
+
     return [
       {
         id: 'main-cart-footer',
@@ -45,13 +75,24 @@ class CartItems extends HTMLElement {
         id: 'cart-icon-bubble',
         section: 'header',
         selector: '.js-cart',
-      },
+      }
     ];
   }
 
+  showCustomily(evt){
+    console.log('12121212')
+    // cartItem = evt.target.closest('.cart__item-title')
+    // imageLinkURL = cartItem.querySelector('.customily-image').innerHTML
+    // const modalImg = document.getElementById("personalized-modal__img")
+    // modalImg.src = imageLinkURL
+    // const modal = document.getElementById("personalized-modal");
+    // modal.style.display = "flex"
+    // document.body.classList.add("disable-event")
+    // document.getElementById('HeaderCart').classList.add("disable-event")
+}
+
   updateQuantity(line, quantity, name) {
     this.enableLoading(line);
-
     const body = JSON.stringify({
       line,
       quantity,
@@ -139,13 +180,32 @@ class CartItems extends HTMLElement {
     // this.querySelectorAll(`#CartItem-${line} .loading-overlay`).forEach((overlay) => overlay.classList.remove('hidden'));
     // document.activeElement.blur();
     // this.lineItemStatusElement.setAttribute('aria-hidden', false);
-    document.querySelector(`#CartItem-${line} .quantity`).classList.add('loading')
+    if (window.location.pathname === '/cart') {
+      document.querySelector(`#CartItemPage-${line} .quantity`).classList.add('loading')
+    } else {
+      document.querySelector(`#CartItem-${line} .quantity`).classList.add('loading')
+    }
   }
 
   disableLoading() {
     // document.getElementById('main-cart-items').classList.remove('cart__items--disabled');
-    document.querySelector(`#CartItem-${line} .quantity`).classList.remove('loading')
+    if (window.location.pathname === '/cart') {
+      document.querySelector(`#CartItemPage-${line} .quantity`).classList.add('loading')
+    } else {
+      document.querySelector(`#CartItem-${line} .quantity`).classList.remove('loading')
+    }
   }
 }
 
 customElements.define('cart-items', CartItems);
+
+function showCustomily(evt){
+  const cartItem = evt.target.closest(".cart-item__details")
+  const imageLinkURL = cartItem.querySelector('.customily-image').innerHTML
+  const modalImg = document.getElementById("personalized-modal__img")
+  modalImg.src = imageLinkURL
+  const modal = document.getElementById("personalized-modal");
+  modal.style.display = "flex"
+  document.body.classList.add("disable-event")
+  // document.getElementById('HeaderCart').classList.add("disable-event")
+}

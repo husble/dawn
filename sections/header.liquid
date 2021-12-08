@@ -71,12 +71,20 @@
     background-color: #fff;
     width: 470px;
     box-shadow: 0 10px 25px rgb(0 0 0 / 15%);
-    z-index: 999;
+    z-index: 1;
     max-height: 556px;
     display: none;
   }
   .site-header__drawer-animate.open {
     display: block;
+  }
+
+  @media screen and (max-width: 768px) {
+    .site-header__drawer-animate {
+      width: 100vw;
+      height: calc(100vh - 59px);
+      right: -47px;
+    }
   }
 
   .header__icon--cart .wrap__cart__open {
@@ -379,7 +387,7 @@
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
           {%- if section.settings.logo != blank -%}
             {%- assign image_size = section.settings.logo_width | append: 'x' -%}
-            <img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+            <img srcset="{{ section.settings.logo | img_url: image_size }} 0.5x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
               src="{{ section.settings.logo | img_url: image_size }}"
               loading="lazy"
               class="header__heading-logo"
@@ -504,7 +512,7 @@
           </div>
           <div class="wrap__cart__close">
             <button type="button" class="site-nav__link site-nav__link--icon js-close-header-cart">
-              <svg style="width: 4rem; height: 4rem;" aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"></path></svg>
+              <svg style="width: 27px; height: 27px;" aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"></path></svg>
             </button>
           </div>
           <div class="site-header__drawer-animate">
@@ -553,8 +561,6 @@
     {%- endif -%}
   </header>
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
-
-<!-- {%- render 'cart-notification', color_scheme: section.settings.color_scheme -%} -->
 
 {% javascript %}
   class StickyHeader extends HTMLElement {
@@ -669,8 +675,6 @@
 
     hide() {
       this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
-      this.closeMenuDisclosure();
-      this.closeSearchModal();
     }
 
     reveal() {

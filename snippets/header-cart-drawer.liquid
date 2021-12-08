@@ -18,10 +18,27 @@
     overflow-x: hidden;
   }
 
+  @media screen and (max-width: 768px) {
+    .cart__scrollable {
+      max-height: calc(100vh - 74px - 187px);
+    }
+  }
+
+  .preview-image {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .preview-image span {
+    display: inline;
+    color: #4481eb
+  }
+
   {%if cart == empty %}
   .cart__scrollable {
     padding: 0;
   }
+
   {%endif%}
 
 {%endstyle%}
@@ -36,14 +53,15 @@
               <div class="cart-item__media">
                 {% if item.image %}
                   {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
-                  <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                  <img class="cart-item__image"
-                    src="{{ item.image | img_url: '300x' }}"
-                    alt="{{ item.image.alt | escape }}"
-                    loading="lazy"
-                    width="150"
-                    height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
-                  >
+                  <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1">
+                    <img class="cart-item__image"
+                      src="{{ item.image | img_url: '300x' }}"
+                      alt="{{ item.image.alt | escape }}"
+                      loading="lazy"
+                      width="150"
+                      height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                    >
+                  </a>
                 {% endif %}
               </div>
 
@@ -65,6 +83,23 @@
                   </div>
                   <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                 {%- endif -%}
+                {% if item.properties['_husblizer-preview-url'] != blank %}
+                  <span class="customily-image" style="display:none;">{{ item.properties['_husblizer-preview-url'] }}</span>
+                {% elsif item.properties['_customily-preview'] != blank %}
+                  <span class="customily-image" style="display:none;">{{ item.properties['_customily-preview'] }}</span>
+                {% elsif item.image != blank %}
+                  <span class="customily-image" style="display:none;">{{ item.image | img_url: '1000x' }}</span>
+                {% endif %}
+                <p
+                  onclick="showCustomily(event)" 
+                  style="margin-bottom: 7px; margin-top: 7px; cursor: pointer;"
+                  class="preview-image"
+                >
+                  Personalization:
+                  <span style="color: {{ settings.personalization_link_color }}">
+                    click here to preview image
+                  </span>
+                </p>
                 <div class="cart__item-sub">
                   <div class="cart-item__quantity">
                     <div class="cart-item__quantity-wrapper">
@@ -219,21 +254,6 @@
   </div>
 </form>
 </cart-items>
-
-<script type="text/javascript">
-  
-  // let elementToObserve = document.getElementById("cart__item-sub");
-  // let observer = new MutationObserver(function() {
-  //   totalSaving();
-  // });
-  // observer.observe(elementToObserve, {subtree: true, childList: true});
-  document.addEventListener('DOMContentLoaded', () => {
-    $('.quantity__button').click(function() {
-      console.log('lulo')
-    })
-  });
-
-</script>
 
 <style>
   .js-remove__item {
