@@ -19,7 +19,7 @@
 {%- endif -%}
 
 <section class="page-width">
-  <div class="product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+  <div class="product-custom product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper">
       <slider-component class="slider-mobile-gutter">
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
@@ -106,8 +106,11 @@
             </div>
           {%- when 'description' -%}
             {%- if product.description != blank -%}
-              <div class="product__description rte">
+              <!-- <div class="product__description rte">
                 {{ product.description }}
+              </div> -->
+              <div id="Product-Description" class="product-block{% if block.settings.is_tab %} product-block--tab{% endif %}" {{ block.shopify_attributes }}>
+                {%- render 'product-description', id: block.id, product: product, is_tab: block.settings.is_tab -%}
               </div>
             {%- endif -%}
           {%- when 'custom_liquid' -%}
@@ -131,7 +134,7 @@
               </details>
             </div>
           {%- when 'quantity_selector' -%}
-            <div class="product-form__input product-form__quantity" {{ block.shopify_attributes }}>
+            <div style="display: none !important" class="product-form__input product-form__quantity" {{ block.shopify_attributes }}>
               <label class="form__label" for="Quantity-{{ section.id }}">
                 {{ 'products.product.quantity.label' | t }}
               </label>
@@ -211,9 +214,24 @@
                                 form="{{ product_form_id }}"
                                 {% if option.selected_value == value %}checked{% endif %}
                           >
-                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                            {{ value }}
-                          </label>
+                          {%- assign swatch_file_extension = 'png' -%}
+                          {%- liquid
+                            assign color_file_name = value | handle | append: '.' | append: swatch_file_extension
+                            assign color_image = color_file_name | file_img_url: '50x50' | prepend: 'https:' | split: '?' | first
+                            assign color_swatch_fallback = value | split: ' ' | last | handle
+                          -%}
+                          {% if option.name == 'Color' %}
+                            <label 
+                              class="color-swatch"
+                              for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                              style="background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}">
+                              &nbsp;
+                            </label>
+                          {% else %}
+                            <label class="variant__button-label" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                              {{ value }}
+                            </label>
+                          {% endif %}
                         {%- endfor -%}
                       </fieldset>
                   {%- endfor -%}
@@ -289,25 +307,54 @@
                 {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
                   <div class="product-form__buttons">
-                    <button
-                      type="submit"
-                      name="add"
-                      class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
-                    {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
-                    >
-                        <span>
-                          {%- if product.selected_or_first_available_variant.available -%}
-                            {{ 'products.product.add_to_cart' | t }}
-                          {%- else -%}
-                            {{ 'products.product.sold_out' | t }}
-                          {%- endif -%}
-                        </span>
-                        <div class="loading-overlay__spinner hidden">
-                          <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                            <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                          </svg>
-                        </div>
-                    </button>
+                    <div class="purchase-details">
+                      <div class="purchase-details__quantity product-form__input product-form__quantity" {{ block.shopify_attributes }}>
+                        <label class="form__label" for="Quantity-{{ section.id }}">
+                          {{ 'products.product.quantity.label' | t }}
+                        </label>
+          
+                        <quantity-input class="quantity">
+                          <button class="quantity__button no-js-hidden" name="minus" type="button">
+                            <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                            {% render 'icon-minus' %}
+                          </button>
+                          <input class="quantity__input"
+                              type="number"
+                              name="quantity"
+                              id="Quantity-{{ section.id }}"
+                              min="1"
+                              value="1"
+                              form="{{ product_form_id }}"
+                            >
+                          <button class="quantity__button no-js-hidden" name="plus" type="button">
+                            <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                            {% render 'icon-plus' %}
+                          </button>
+                        </quantity-input>
+                      </div>
+                      <div class="purchase-details__buttons">
+                        <button
+                          type="submit"
+                          name="add"
+                          class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+                        {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+                        >
+                          <span>
+                            {%- if product.selected_or_first_available_variant.available -%}
+                              {{ 'products.product.add_to_cart' | t }}
+                            {%- else -%}
+                              {{ 'products.product.sold_out' | t }}
+                            {%- endif -%}
+                          </span>
+                          <div class="loading-overlay__spinner hidden">
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                          </div>
+                        </button> 
+                      </div>
+                      
+                    </div>
                     {%- if block.settings.show_dynamic_checkout -%}
                       {{ form | payment_button }}
                     {%- endif -%}
