@@ -1,0 +1,82 @@
+{% comment %}
+Optional
+---------
+set_product_height: <boolean>
+quickshop: <boolean>
+{% endcomment %}
+
+{% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+{% capture list %}
+  {% for image in product.images %}
+    {% comment %}Loop through images only once{% endcomment %}
+    {{ image.id }}`~`{{ image.alt }}`~`{{ image | img_url: '100x' }}`~`{{ image | img_url: '200x' }}`~`{{ image | img_url: '400x' }}`~`{{ image | img_url: '600x' }}`~`{{ image | img_url: '800x' }}`~`{{ image | img_url: '1200x' }}`~`{{ image | img_url: '2000x' }}`~`{{-image.width-}}px`~`{{-image.height-}}px{{ image | product_img_url: '5000x' }}{% if forloop.last == false %}^{% endif %}
+  {% endfor %}
+{% endcapture %}
+{% assign image_list = list | split: "^" %}
+
+{% style %}
+.shopify-model-viewer-ui model-viewer {
+  --progress-bar-height: 2px;
+  --progress-bar-color: {{ settings.regular_color }};
+}
+{% endstyle %}
+
+<p class="text-preview is-hidden"><strong>Choose the options above to check the preview below:</strong></p>
+<p class="text-warning-size is-hidden" style="font-size: 14px; font-weight: 500; margin: 10px 0 0;">
+  <b style="color: red">Warning:</b> Your current photo is blurry. 
+  <br>A higher-quality photo is recommended for the best performance. 
+  
+  <span class="tooltip-custom">
+    <span style="text-decoration: underline; color: #142b3b;">See More Information</span>
+    <span class="tooltip-text">
+      Your current photo size (W x H): <b class="size-warning"></b>
+      <br>
+      Minimum recommended size: <b>1000 x 1000px</b>
+    </span>
+  </span>
+</p>
+<div class="text-note-button is-hidden">
+  Adjust your photo<span>(</span>s<span>)</span> with the buttons below:
+</div>
+
+<div class="mainImage">
+  <figure class="Gallery__item">
+    <img loading="lazy" src="{{ product.media[0] | img_url: '5000x' }}" alt="">
+    {% if thumbnail_badge == 'video-thumbnail' %}
+      <svg class="media-badge" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 25H25V1H1V25Z" fill="white"/><path class="media-badge__outline" d="M0.5 25V25.5H1H25H25.5V25V1V0.5H25H1H0.5V1V25Z" stroke="black" stroke-opacity="0.05"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.19995 5.8V20.2L19.3999 12.5858L8.19995 5.8Z" fill="#3A3A3A" fill-opacity="0.6"/></svg>
+    {% elsif thumbnail_badge == '3d-thumbnail' %}
+      <svg class="media-badge" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 25H25V1H1V25Z" fill="white"/><path class="media-badge__outline" d="M0.5 25V25.5H1H25H25.5V25V1V0.5H25H1H0.5V1V25Z" stroke="black" stroke-opacity="0.05"/><g opacity="0.6"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 6L19.0622 9.5V16.5L13 20L6.93782 16.5V9.5L13 6Z" stroke="#3A3A3A" stroke-width="1.5"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13 20V12.6024C13.6225 12.2002 13.6225 12.2002 13.6225 12.2002L19 9V16.4082L13 20Z" fill="#3A3A3A"/></g></svg>
+    {% endif %}
+  </figure>
+</div>
+
+<div class="Gallery__thumbs">
+  <div class="Gallery__wrapper">
+    {% if product.media.size > 1 %}
+      {% for media in product.media %}
+        <a  href="{{ media | img_url: '5000x' }}"
+            class="lightbox"
+            data-fancybox="{{ product.id }}"
+            rel="product-lightbox"
+            tabindex="0"
+            data-title="{{ image_alt | escape }}">
+          
+            <img loading="lazy" src="{{ media | img_url: '490x' }}" alt="">
+            {% if thumbnail_badge == 'video-thumbnail' %}
+              <svg class="media-badge" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 25H25V1H1V25Z" fill="white"/><path class="media-badge__outline" d="M0.5 25V25.5H1H25H25.5V25V1V0.5H25H1H0.5V1V25Z" stroke="black" stroke-opacity="0.05"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.19995 5.8V20.2L19.3999 12.5858L8.19995 5.8Z" fill="#3A3A3A" fill-opacity="0.6"/></svg>
+            {% elsif thumbnail_badge == '3d-thumbnail' %}
+              <svg class="media-badge" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 25H25V1H1V25Z" fill="white"/><path class="media-badge__outline" d="M0.5 25V25.5H1H25H25.5V25V1V0.5H25H1H0.5V1V25Z" stroke="black" stroke-opacity="0.05"/><g opacity="0.6"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 6L19.0622 9.5V16.5L13 20L6.93782 16.5V9.5L13 6Z" stroke="#3A3A3A" stroke-width="1.5"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13 20V12.6024C13.6225 12.2002 13.6225 12.2002 13.6225 12.2002L19 9V16.4082L13 20Z" fill="#3A3A3A"/></g></svg>
+            {% endif %}
+        </a>
+
+        {% if media.media_type contains 'video' %}
+          {% assign thumbnail_badge = 'video-thumbnail' %}
+        {% elsif media.media_type contains 'model' %}
+          {% assign thumbnail_badge = '3d-thumbnail' %}
+        {% else %}
+          {% assign thumbnail_badge = '' %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

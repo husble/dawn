@@ -48,14 +48,9 @@ class CartItems extends HTMLElement {
           selector: '.js-cart',
         },
         {
-          id: 'main-cart-footer-page',
-          section: 'main-cart-items',
-          selector: '.js-contents-footer',
-        },
-        {
           id: 'main-cart-items-page',
           section: 'main-cart-items',
-          selector: '.js-contents',
+          selector: '.js-contents-main',
         },
       ];
     }

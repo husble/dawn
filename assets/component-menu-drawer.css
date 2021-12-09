@@ -1,6 +1,12 @@
 .header__icon--menu {
   position: initial;
-  width: fit-content;
+  width: initial;
+}
+
+@media screen and (max-width: 768px) {
+  .header__icon--menu {
+    width: fit-content;
+  }
 }
 
 .js menu-drawer > details > summary::before,

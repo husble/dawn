@@ -1050,7 +1050,7 @@ summary::-webkit-details-marker {
   width: calc(50% - 0.5rem / 2);
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .grid--2-col .grid__item {
     width: calc(50% - 1rem / 2);
   }
@@ -2121,6 +2121,8 @@ input[type='checkbox'] {
 
 .header__logo {
   flex: 1 1 170px;
+  display: flex;
+  justify-content: center;
 }
 /* Search */
 /* menu-drawer + .header__search {
