@@ -1913,13 +1913,15 @@ input[type='checkbox'] {
 
 /* section-header */
 #shopify-section-header {
-  z-index: 3;
-}
-
-.shopify-section-header-sticky {
-  position: sticky;
+  z-index: 10;
+  position: sticky !important;
   top: 0;
 }
+
+/* .shopify-section-header-sticky {
+  position: sticky;
+  top: 0;
+} */
 
 /* .shopify-section-header-hidden {
   transform: translateY(-100%);
@@ -2103,6 +2105,9 @@ input[type='checkbox'] {
   /* margin-right: -1.2rem; */
 }
 
+header-drawer {
+  transition: all .3s cubic-bezier(.18, .77, .58, 1);
+}
 
 @media screen and (max-width: 768px) {
   .header__search {
@@ -2488,4 +2493,9 @@ details-disclosure > details {
 
 cart-items form {
   background-color: #fff;
+}
+
+.loox-rating {
+  display: inline-block !important;
+  min-height: 16px;
 }

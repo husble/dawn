@@ -1,8 +1,14 @@
 .product-recommendations {
   display: block;
+  padding: 0 3.5rem;
 }
 
 .product-recommendations__heading {
   margin: 0;
   margin-bottom: 3rem;
+  color: #ba2649;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 600;
 }

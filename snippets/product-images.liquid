@@ -19,6 +19,25 @@ quickshop: <boolean>
   --progress-bar-height: 2px;
   --progress-bar-color: {{ settings.regular_color }};
 }
+
+@media only screen and (max-width: 768px) {
+  .Gallery__thumbs {
+      overflow: scroll;
+  }
+
+  .Gallery__thumbs .Gallery__wrapper {
+    display: inline-block;
+    overflow: visible;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .Gallery__thumbs a {
+    display: inline-block;
+    width: 20%;
+    margin-right: 0.5em;
+  }
+}
 {% endstyle %}
 
 <p class="text-preview is-hidden"><strong>Choose the options above to check the preview below:</strong></p>
