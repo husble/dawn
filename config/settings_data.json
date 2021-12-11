@@ -35,7 +35,7 @@
         "settings": {
           "color_scheme": "background-1",
           "logo": "shopify:\/\/shop_images\/PrimaryLogo.png",
-          "logo_width": 100,
+          "logo_width": 200,
           "logo_position": "middle-left",
           "menu": "main-menu",
           "show_line_separator": true,
@@ -70,7 +70,7 @@
           "c1bc1dc9-56b9-4c57-af98-1c25c89e6f20": {
             "type": "payment",
             "settings": {
-              "payment_title": "We accept??",
+              "payment_title": "Secure Payments",
               "show_payment_icons": true,
               "show_locale_selector": true,
               "show_currency_selector": true
