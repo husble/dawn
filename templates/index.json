@@ -1,6 +1,6 @@
 {
   "sections": {
-    "image_banner": {
+    "slideshow": {
       "type": "slideshow",
       "blocks": {
         "fc403fdb-b147-49e0-850f-75cd08fd1c95": {
@@ -210,7 +210,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "slideshow",
     "featured_products",
     "featured_collections",
     "16387862430f3985d3",
