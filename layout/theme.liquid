@@ -108,6 +108,12 @@
           font-size: 1.6rem;
         }
       }
+
+      @media screen and (min-width: 768px) {
+        #MainContent {
+          padding: 0 2rem;
+        }
+      }
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}

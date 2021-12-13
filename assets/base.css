@@ -2297,6 +2297,12 @@ details[open] > .header__icon--menu .icon-hamburger {
   display: none;
 }
 
+@media screen and (max-width: 768px) {
+  .header__inline-menu {
+    display: none !important;
+  }
+}
+
 .header--top-center .header__inline-menu,
 .header--top-center .header__heading-link {
   margin-left: 0;
