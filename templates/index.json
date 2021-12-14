@@ -23,10 +23,32 @@
             "overlay_opacity": 0,
             "focal_point": "center center"
           }
+        },
+        "f68fe668-24a1-455e-b7a4-99e61f4a71ec": {
+          "type": "hero",
+          "settings": {
+            "top_subheading": "",
+            "title": "<p>Overlaid Hero Slide<\/p>",
+            "title_size": 70,
+            "subheading": "And optional subtext",
+            "link": "",
+            "link_text": "Optional button",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#fff",
+            "button_color": "#000",
+            "text_align": "vertical-bottom horizontal-left",
+            "margin_top_btn": 8,
+            "image": "shopify:\/\/shop_images\/Banner_PC_2222_2160x_966f4485-1986-4628-a5e1-bee5b90879bf.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Banner_PC_2222_300x_78fe9439-7f83-40c1-a668-e15fa57ed06d.jpg",
+            "overlay_opacity": 0,
+            "focal_point": "center center"
+          }
         }
       },
       "block_order": [
-        "fc403fdb-b147-49e0-850f-75cd08fd1c95"
+        "fc403fdb-b147-49e0-850f-75cd08fd1c95",
+        "f68fe668-24a1-455e-b7a4-99e61f4a71ec"
       ],
       "settings": {
         "full_width": true,
