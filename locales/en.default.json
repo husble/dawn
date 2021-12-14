@@ -55,6 +55,14 @@
       "learn_more": "Learn more"
     }
   },
+  "home_page": {
+    "onboarding": {
+      "product_title": "Example product",
+      "product_description": "This area is used to describe your product’s details. Tell customers about the look, feel, and style of your product. Add details on color,  materials used, sizing, and where it was made.",
+      "collection_title": "Example collection",
+      "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar."
+    }
+  },
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
@@ -221,6 +229,10 @@
         "one": "{{ count }} item",
         "other": "{{ count }} items"
       }
+    },
+    "slideshow": {
+      "play_slideshow": "Play slideshow",
+      "pause_slideshow": "Pause slideshow"
     },
     "cart": {
       "title": "Your cart",

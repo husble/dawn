@@ -21,3 +21,15 @@
   width: 52.5rem;
   height: 52.5rem;
 }
+
+@media screen and (max-width: 768px) {
+  .page-search {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page-search {
+    padding: 0 1rem;
+  }
+}

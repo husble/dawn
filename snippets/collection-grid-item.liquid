@@ -54,7 +54,7 @@
 <div class="grid-item">
   <a href="{{ collection_link }}" class="collection-item">
 
-    <!-- {%- liquid
+    {%- liquid
       if block.settings.image_cover != blank
         assign collection_image = block.settings.image_cover
       else
@@ -66,21 +66,18 @@
           assign using_collection_image = false
         endif
       endif
-    -%} -->
+    -%}
 
     <div class="collection-image-wrap collection-image--{{ settings.collection_grid_shape }}">
       <div class="collection-image{% if using_collection_image %} collection-image--is-collection{% endif %} image-wrap">
-        {%- assign img_url = block.settings.image_cover | img_url: '533' -%}
+        {%- assign img_url = collection_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
         <img
           class="lazyload"
-          src="{{ img_url }}"
           data-src="{{ img_url }}"
-          data-aspectratio="{{ img_url.aspect_ratio }}"
+          data-aspectratio="{{ collection_image.aspect_ratio }}"
           data-widths="[720, 900, 1080]"
           data-sizes="auto"
-          loading="lazy"
-          alt="{{ img_url.alt | escape }}"
-        >
+          alt="{{ collection_image.alt | escape }}">
         <noscript>
           <img class="lazyloaded"
             src="{{ collection_image | img_url: '400x' }}"
