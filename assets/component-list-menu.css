@@ -1,17 +1,68 @@
+/* css menu */
+.header__inline-menu {
+  display: flex;
+  justify-content: center;
+}
+.list-menu-item {
+  position: relative;
+}
+
+.list-menu-item.mega-menu {
+  position: static;
+}
+
+
+.list-menu-item--link {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 16px;
+  padding: 16px 20px;
+  color: #000;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+}
+.list-menu-item--link::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 20px;
+  right: 0;
+  border-bottom: 2px solid;
+  border-bottom-color: #000000;
+  opacity: 0;
+  width: calc(100% - 40px);
+}
+
+.list-menu-item--link:hover::after {
+  opacity: 1;
+}
+
 .list-menu--right {
   right: 0;
 }
 
 .list-menu--disclosure {
   position: absolute;
-  min-width: 100%;
-  width: 20rem;
   background-color: rgb(var(--color-background));
   top: 59px;
   left: 0;
   visibility: hidden;
   opacity: 0;
-  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity .3s, visibility .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0px 10px 20px rgb(0 0 0 / 9%);
+  z-index: 99;
+}
+
+.list-menu--disclosure.mega-menu {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  min-width: 100%;
+  top: 140px;
+  padding-top: 30px!important;
 }
 
 .list-menu--disclosure:focus {
@@ -32,15 +83,40 @@
 
 .list-menu-item-first a {
   text-decoration: none;
-  padding: 8px 15px;
 }
-
-.list-menu-item-first:hover a {
+.list-menu--disclosure a:hover {
   text-decoration: underline;
 }
 
 .list-menu-item:hover .list-menu--disclosure {
   visibility: visible;
   opacity: 1;
-  padding: 10px 0px;
+  padding: 20px 20px 5px;
+}
+
+.list-menu--disclosure.mega-menu .list-menu-item-first {
+  font-size: 18px;
+  font-weight: 600;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  flex-basis: 200px;
+  padding: 0 60px 30px 0;
+  box-sizing: content-box;
+}
+
+.list-menu--disclosure.mega-menu .list-menu-item-first > a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+}
+.item__sub__megamenu a {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.8;
+  padding: 2px 0;
+}
+
+.list-menu-item.drop-menu li{
+  padding: 8px 15px;
+  font-size: 16px;
 }

@@ -45,13 +45,12 @@
   }
 
   .list-menu--inline {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     max-width: 1500px;
     margin: 0 auto;
+    padding: 0 40px;
   }
 
   summary.list-menu__item {
@@ -532,9 +531,9 @@
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
           {%- for link in section.settings.menu.links -%}
-            <li class="list-menu-item">
+            <li class="list-menu-item {% if link.levels > 1 %}mega-menu{%else%}drop-menu{% endif %}">
               {%- if link.links != blank -%}
-                <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
+                <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce {% if link.levels > 1 %}mega-menu{% endif %}" role="list" tabindex="-1">
                   {%- for childlink in link.links -%}
                     <li class="list-menu-item-first">
                       {%- if childlink.links == blank -%}
@@ -542,10 +541,10 @@
                           {{ childlink.title | escape }}
                         </a>
                       {%- else -%}
-                        {{ childlink.title | escape }}
+                        <a href="{{ childlink.url }}" >{{ childlink.title | escape }}</a>
                         <ul id="HeaderMenu-SubMenuList-{{ forloop.index }}" class="header__submenu list-menu motion-reduce">
                           {%- for grandchildlink in childlink.links -%}
-                            <li>
+                            <li class="item__sub__megamenu">
                               <a href="{{ grandchildlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
                                 {{ grandchildlink.title | escape }}
                               </a>
@@ -678,7 +677,7 @@
           if (window.innerWidth > 768) {
             headerDraw.style.opacity = 0
             headerDraw.style.width = 0
-            lineMenu.style.display = 'block'
+            lineMenu.style.display = 'flex'
           }
         }
       }
