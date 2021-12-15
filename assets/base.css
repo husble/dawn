@@ -2126,6 +2126,12 @@ input[type='checkbox'] {
   align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+  .header__icons {
+    padding-left: 0px;
+  }
+}
+
 .header__icon:not(.header__icon--summary),
 .header__icon span {
   display: flex;
@@ -2174,7 +2180,7 @@ header-drawer {
   }
 
   header-drawer {
-    flex: 0 0 70px;
+    flex: 0 0 10px;
     margin-left: 1.2rem;
   }
 
