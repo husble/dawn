@@ -24,6 +24,7 @@
     header-drawer {
       flex: 0 0 auto;
       opacity: 0;
+      display: none !important;
     }
   }
 
@@ -31,6 +32,7 @@
     header-drawer {
       opacity: 1 !important;
       width: 10px !important;
+      display: block;
     }
   }
 
@@ -141,7 +143,7 @@
   <header class="header header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
     <div class="header__top">
       {%- if section.settings.menu != blank -%}
-        <header-drawer data-breakpoint="tablet">
+        <header-drawer class="menu-tablet" data-breakpoint="tablet">
           <details id="Details-menu-drawer-container" class="menu-drawer-container">
             <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
               <span>
@@ -308,6 +310,14 @@
             </div>
           </details>
         </header-drawer>
+        <div class="menu-drawer-desktop">
+          <div class="open">
+            {% render 'icon-hamburger' %}
+          </div>
+          <div class="close">
+            {% render 'icon-close' %}
+          </div>
+        </div>
       {%- endif -%}
 
       {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
@@ -572,6 +582,26 @@
   class StickyHeader extends HTMLElement {
     constructor() {
       super();
+      this.open = false
+      this.swapOpen = (open, close) => {
+        open.style.opacity = 1
+        open.style.display = 'block'
+        open.style.width = '100px'
+        open.style.height = 'auto'
+        close.style.opacity = 0
+        close.style.width = '100px'
+        close.style.height = 0
+        close.style.display = 'none'
+      }
+
+      this.allClose = (close, close1) => {
+        close1.style.opacity = 0
+        close1.style.width = 0
+        close1.style.height = 0
+        close.style.opacity = 0
+        close.style.width = 0
+        close.style.height = 0
+      }
     }
 
     connectedCallback() {
@@ -580,6 +610,8 @@
       this.currentScrollTop = 0;
       this.preventReveal = false;
       this.predictiveSearch = this.querySelector('predictive-search');
+      const lineMenu = this.querySelector('.header__inline-menu')
+      const headerDraw = this.querySelector('header-drawer')
 
       this.onScrollHandler = this.onScroll.bind(this);
       this.hideHeaderOnScrollUp = () => this.preventReveal = true;
@@ -610,6 +642,8 @@
       const modalCart = this.querySelector(".site-header__drawer-animate")
       const openCart = this.querySelector(".wrap__cart__open")
       const closeCart = this.querySelector(".wrap__cart__close")
+      const menuDrawerDesktopOpen = this.querySelector('.menu-drawer-desktop .open')
+      const menuDrawerDesktopClose = this.querySelector('.menu-drawer-desktop .close')
       openCart.addEventListener('click', () => {
         if (window.location.pathname === '/cart') {
           window.location.href = '/cart'
@@ -619,6 +653,7 @@
         modalCart.classList.toggle("open")
         cart.classList.toggle('open')
       })
+      
 
       closeCart.addEventListener('click', () => {
         modalCart.classList.toggle("open")
@@ -628,22 +663,50 @@
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       if (window.innerWidth <= 768) {
-        headerDraw.style.opacity = 1;
-        headerDraw.style.width = '100px'
+        this.allClose(menuDrawerDesktopClose, menuDrawerDesktopOpen)
         lineMenu.style.display = 'none'
       } else {
         if (scrollTop > 0 && window.innerWidth > 768) {
-          headerDraw.style.opacity = 1;
-          headerDraw.style.width = '100px'
-          lineMenu.style.display = 'none'
+          if (!this.open) {
+            this.swapOpen(menuDrawerDesktopOpen, menuDrawerDesktopClose)
+            lineMenu.style.display = 'flex'
+            lineMenu.style.zIndex = -1
+            lineMenu.style.transform = `translateY(-150px)`
+            lineMenu.style.height = 0
+          } else {
+            this.swapOpen(menuDrawerDesktopClose, menuDrawerDesktopOpen)
+          }
         } else {
           if (window.innerWidth > 768) {
             headerDraw.style.opacity = 0
             headerDraw.style.width = 0
-            lineMenu.style.display = 'block'
+            <!-- headerDraw.style.display = 'none' -->
+            lineMenu.style.display = 'flex'
+            lineMenu.style.zIndex = 99
+            lineMenu.style.transform = `translateY(0)`
+            lineMenu.style.height = 'auto'
+            this.allClose(menuDrawerDesktopClose, menuDrawerDesktopOpen)
           }
         }
       }
+
+      menuDrawerDesktopOpen.addEventListener('click', () => {
+        lineMenu.style.display = 'flex'
+        lineMenu.style.zIndex = 99
+        lineMenu.style.transform = `translateY(0)`
+        lineMenu.style.height = 'auto'
+        this.swapOpen(menuDrawerDesktopClose, menuDrawerDesktopOpen)
+        this.open = true
+      })
+
+      menuDrawerDesktopClose.addEventListener('click', () => {
+        lineMenu.style.display = 'flex'
+        lineMenu.style.zIndex = -1
+        lineMenu.style.transform = `translateY(-150px)`
+        lineMenu.style.height = 0
+        this.swapOpen(menuDrawerDesktopOpen, menuDrawerDesktopClose)
+        this.open = false
+      })
     }
 
     disconnectedCallback() {
@@ -663,21 +726,33 @@
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const headerDraw = this.querySelector('header-drawer')
+      const menuDrawerDesktopOpen = this.querySelector('.menu-drawer-desktop .open')
+      const menuDrawerDesktopClose = this.querySelector('.menu-drawer-desktop .close')
       const lineMenu = this.querySelector('.header__inline-menu')
       if (window.innerWidth <= 768) {
-        headerDraw.style.opacity = 1;
-        headerDraw.style.width = '100px'
         lineMenu.style.display = 'none'
+        this.allClose(menuDrawerDesktopClose, menuDrawerDesktopOpen)
       } else {
         if (scrollTop > 0 && window.innerWidth > 768) {
-          headerDraw.style.opacity = 1;
-          headerDraw.style.width = '100px'
-          lineMenu.style.display = 'none'
+          if (!this.open) {
+            lineMenu.style.display = 'flex'
+            lineMenu.style.zIndex = -1
+            lineMenu.style.height = 0
+            lineMenu.style.transform = `translateY(-150px)`
+            this.swapOpen(menuDrawerDesktopOpen, menuDrawerDesktopClose)
+          } else {
+            this.swapOpen(menuDrawerDesktopClose, menuDrawerDesktopOpen)
+          }
         } else {
           if (window.innerWidth > 768) {
             headerDraw.style.opacity = 0
             headerDraw.style.width = 0
+            <!-- headerDraw.style.display = 'none' -->
             lineMenu.style.display = 'flex'
+            lineMenu.style.transform = `translateY(0)`
+            lineMenu.style.height = 'auto'
+            lineMenu.style.zIndex = 99
+            this.allClose(menuDrawerDesktopClose, menuDrawerDesktopOpen)
           }
         }
       }

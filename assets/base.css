@@ -2015,6 +2015,33 @@ input[type='checkbox'] {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  position: relative;
+  z-index: 100;
+  background-color: #fff;
+}
+
+.menu-drawer-desktop {
+  cursor: pointer;
+}
+
+.menu-drawer-desktop .open {
+  opacity: 0;
+  transition: width .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.menu-drawer-desktop .close {
+  opacity: 0;
+  transition: width .3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+@media screen and (max-width: 768px) {
+  .menu-drawer-desktop .open {
+    display: none !important;
+  }
+
+  .menu-drawer-desktop .close {
+    display: none !important;
+  }
 }
 
 
