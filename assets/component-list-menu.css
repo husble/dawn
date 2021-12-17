@@ -4,7 +4,7 @@
   z-index: 99;
   display: flex;
   justify-content: center;
-  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform .2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media screen and (max-width: 768px) {

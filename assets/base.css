@@ -2015,9 +2015,16 @@ input[type='checkbox'] {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  position: relative;
   z-index: 100;
   background-color: #fff;
+  padding-top: 2rem;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .header__top {
+    padding-top: 0;
+  }
 }
 
 .menu-drawer-desktop {
@@ -2048,7 +2055,6 @@ input[type='checkbox'] {
 
 @media screen and (min-width: 990px) {
   .header {
-    padding-top: 2rem;
     padding-bottom: 2rem;
   }
 
@@ -2191,7 +2197,6 @@ input[type='checkbox'] {
 }
 
 .header__icon--cart {
-  position: relative;
   text-decoration: none;
   font-size: 1.8rem;
   /* margin-right: -1.2rem; */
