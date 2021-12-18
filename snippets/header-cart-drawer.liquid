@@ -21,6 +21,7 @@
   @media screen and (max-width: 768px) {
     .cart__scrollable {
       max-height: calc(100vh - 74px - 187px);
+      padding: 20px 5px 0;
     }
   }
 
@@ -32,6 +33,13 @@
   .preview-image span {
     display: inline;
     color: #4481eb
+  }
+
+  @media screen and (max-width: 320px) {
+    .preview-image {
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
 
   {%if cart == empty %}

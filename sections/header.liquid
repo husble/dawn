@@ -426,7 +426,7 @@
           <form action="{{ routes.search_url }}" method="get" role="search" class="search search-form">
             <div class="field">
               <input class="search__input field__input"
-                id="Search-In-Modal"
+                id="Search-In-Modal-Desktop"
                 type="search"
                 name="q"
                 value=""
@@ -453,45 +453,13 @@
           </form>
         </div>
       </div>
+      <svg style="margin-left: 14px; width: 30px; display: none;" class="icon-search-desktop--close icon icon-close" aria-hidden="true" focusable="false" role="presentation">
+        <use href="#icon-close">
+      </svg>
       <div class="header__icons">
           <svg class="icon icon-search-mobile" aria-hidden="true" focusable="false" role="presentation">
             <use href="#icon-search">
           </svg>
-          <div class="search-mobile" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
-            <div>
-              <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
-                <div class="field">
-                  <input class="search__input field__input"
-                    id="Search-In-Modal"
-                    type="search"
-                    name="q"
-                    value=""
-                    placeholder="{{ 'general.search.search' | t }}"
-                    role="combobox"
-                    aria-expanded="false"
-                    aria-owns="predictive-search-results-list"
-                    aria-controls="predictive-search-results-list"
-                    aria-haspopup="listbox"
-                    aria-autocomplete="list"
-                    autocorrect="off"
-                    autocomplete="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                  >
-                  <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
-                  <input type="hidden" name="options[prefix]" value="last">
-                  <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
-                    <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
-                      <use href="#icon-search">
-                    </svg>
-                  </button>
-                </div>
-              </form>
-            </div>
-            <svg class="icon-search-mobile--close icon icon-close" aria-hidden="true" focusable="false" role="presentation">
-              <use href="#icon-close">
-            </svg>
-          </div>
         {%- if shop.customer_accounts_enabled -%}
           <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
             {% render 'icon-account' %}
@@ -539,6 +507,41 @@
         </div>
       </div>
     </div>
+    <div class="search-mobile" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+      <div>
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+          <div class="field">
+            <input class="search__input field__input"
+              id="Search-In-Modal-Mobile"
+              type="search"
+              name="q"
+              value=""
+              placeholder="{{ 'general.search.search' | t }}"
+              role="combobox"
+              aria-expanded="false"
+              aria-owns="predictive-search-results-list"
+              aria-controls="predictive-search-results-list"
+              aria-haspopup="listbox"
+              aria-autocomplete="list"
+              autocorrect="off"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+            >
+            <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+            <input type="hidden" name="options[prefix]" value="last">
+            <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+              <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search">
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+      <svg style="display: none;" class="icon-search-mobile--close icon icon-close" aria-hidden="true" focusable="false" role="presentation">
+        <use href="#icon-close">
+      </svg>
+    </div>
     {%- if section.settings.menu != blank -%}
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
@@ -585,6 +588,7 @@
     constructor() {
       super();
       this.open = false
+      this.search = false
       this.swapOpen = (open, close) => {
         open.style.opacity = 1
         open.style.display = 'block'
@@ -614,30 +618,79 @@
       this.predictiveSearch = this.querySelector('predictive-search');
       const lineMenu = this.querySelector('.header__inline-menu')
       const headerDraw = this.querySelector('header-drawer')
+      const searchMobile = this.querySelector('.search-mobile')
+      const inPutMobile = this.querySelector('.search-mobile #Search-In-Modal-Mobile')
+      const inputDesktop = this.querySelector('#Search-In-Modal-Desktop')
+      const checkProduct = window.location.pathname.indexOf("/products/") !== -1
 
       this.onScrollHandler = this.onScroll.bind(this);
+      this.onResizeHandler = this.onResize.bind(this);
       this.hideHeaderOnScrollUp = () => this.preventReveal = true;
 
       this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
       window.addEventListener('scroll', this.onScrollHandler, false);
+      window.addEventListener('resize', this.onResizeHandler, false);
       this.createObserver();
       const item = this.querySelector('.icon-search-mobile')
+      const itemS = this.querySelector('.icon-search-mobile--close')
+      const itemCloseDesktop = this.querySelector('.icon-search-desktop--close')
       item.addEventListener('click', () => {
-        const searchMobile = this.querySelector('.search-mobile')
         const itemClose = this.querySelector('.icon-search-mobile--close')
 
         searchMobile.classList.add('open')
+        searchMobile.style.zIndex = 101
+        searchMobile.style.transform = 'translateY(0)'
         itemClose.classList.add('open')
+        item.style.display = 'none'
+        itemS.style.display = 'block'
+        this.search = true
       })
 
-      const itemS = this.querySelector('.icon-search-mobile--close')
 
       itemS.addEventListener('click', () => {
-        const searchMobile = this.querySelector('.search-mobile')
-  
         searchMobile.classList.remove('open')
+        searchMobile.style.zIndex = 101
+        searchMobile.style.transform = 'translateY(0)'
         itemS.classList.remove('open')
+        itemS.style.display = 'none'
+        this.search = false
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop === 0) {
+          if (!checkProduct) {
+            item.style.display = 'none'
+            searchMobile.classList.add('open')
+            searchMobile.style.zIndex = -1
+            searchMobile.style.transform = 'translateY(59px)'
+          } else {
+            item.style.display = 'block'
+          }
+        } else {
+          item.style.display = 'block'
+        }
       })
+
+      inPutMobile.addEventListener('focus', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop === 0 && window.innerWidth <= 768 && !this.search) {
+          itemS.classList.add('open')
+          itemS.style.display = 'block'
+        }
+      })
+
+      inPutMobile.addEventListener('blur', (event) => {
+        if (scrollTop === 0 && window.innerWidth <= 768 && !this.search) {
+          itemS.classList.remove('open')
+          itemS.style.display = 'none'
+        }
+      }); 
+
+      inputDesktop.addEventListener('focus', () => {
+        itemCloseDesktop.style.display = 'block'
+      })
+
+      inputDesktop.addEventListener('blur', (event) => {
+        itemCloseDesktop.style.display = 'none'
+      });
 
       <!-- handle toggle cart -->
       const cart = this.querySelector(".header__icon--cart");
@@ -661,12 +714,30 @@
         modalCart.classList.toggle("open")
         cart.classList.toggle('open')
       })
-
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
       if (window.innerWidth <= 768) {
         this.allClose(menuDrawerDesktopClose, menuDrawerDesktopOpen)
         lineMenu.style.display = 'none'
+
+        if (!this.search) {
+          if (scrollTop === 0) {
+            if (!checkProduct) {
+              itemS.style.display = 'none'
+              searchMobile.classList.add('open')
+              searchMobile.style.transform = 'translateY(59px)'
+              item.style.display = 'none'
+              searchMobile.style.zIndex = -1
+            }
+          } else {
+            searchMobile.classList.remove('open')
+            itemS.style.display = 'block'
+            searchMobile.style.transform = 'translateY(0)'
+            item.style.display = 'block'
+            searchMobile.style.zIndex = 101
+            this.search = false
+          }
+        }
+
       } else {
         if (scrollTop > 0 && window.innerWidth > 768) {
           if (!this.open) {
@@ -731,9 +802,30 @@
       const menuDrawerDesktopOpen = this.querySelector('.menu-drawer-desktop .open')
       const menuDrawerDesktopClose = this.querySelector('.menu-drawer-desktop .close')
       const lineMenu = this.querySelector('.header__inline-menu')
+      const searchMobile = this.querySelector('.search-mobile')
+      const item = this.querySelector('.icon-search-mobile')
+      const checkProduct = window.location.pathname.indexOf("/products/") !== -1
+      const itemS = this.querySelector('.icon-search-mobile--close')
       if (window.innerWidth <= 768) {
         lineMenu.style.display = 'none'
         this.allClose(menuDrawerDesktopClose, menuDrawerDesktopOpen)
+
+        if (!this.search) {
+          if (scrollTop === 0) {
+            if (!checkProduct) {
+              searchMobile.classList.add('open')
+              searchMobile.style.transform = 'translateY(59px)'
+              searchMobile.style.zIndex = -1
+              item.style.display = 'none'
+            }
+          } else {
+            searchMobile.classList.remove('open')
+            searchMobile.style.transform = 'translateY(0)'
+            item.style.display = 'block'
+            searchMobile.style.zIndex = 101
+          }
+        }
+
       } else {
         if (scrollTop > 0 && window.innerWidth > 768) {
           if (!this.open) {
@@ -781,6 +873,46 @@
 
 
       this.currentScrollTop = scrollTop;
+    }
+
+    onResize() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const width = window.innerWidth
+      const searchMobile = this.querySelector('.search-mobile')
+      const item = this.querySelector('.icon-search-mobile')
+      const itemS = this.querySelector('.icon-search-mobile--close')
+      const itemCloseDesktop = this.querySelector('.icon-search-desktop--close')
+      const checkProduct = window.location.pathname.indexOf("/products/") !== -1
+
+      itemCloseDesktop.style.display = 'none'
+      if (width <= 768) {
+        if (this.search) {
+          searchMobile.classList.add('open')
+          searchMobile.style.zIndex = 101
+          searchMobile.style.transform = 'translateY(0)'
+          itemS.classList.add('open')
+          item.style.display = 'none'
+          itemS.style.display = 'block'
+        } else {
+          if (scrollTop === 0) {
+            if (!checkProduct) {
+              searchMobile.classList.add('open')
+              searchMobile.style.zIndex = -1
+              searchMobile.style.transform = 'translateY(59px)'
+              itemS.classList.add('open')
+              item.style.display = 'none'
+              itemS.style.display = 'none'
+            }
+          } else {
+            item.style.display = 'block'
+          }
+        }
+      } else {
+        searchMobile.classList.remove('open')
+        searchMobile.style.zIndex = 101
+        searchMobile.style.transform = 'translateY(0)'
+        item.style.display = 'none'
+      }
     }
 
     hide() {

@@ -59,6 +59,12 @@
   pointer-events: none;
 }
 
+@media screen and (max-width: 320px) {
+  .cart-item__quantity .quantity__button {
+    padding: 0 4px;
+  }
+}
+
 .cart-item__discounted-prices {
   display: flex;
   flex-direction: column;
@@ -68,6 +74,12 @@
 .discounts__discount {
   font-size: 16px;
   color: #fa3900;
+}
+
+@media screen and (max-width: 320px) {
+  .discounts__discount {
+    font-size: 12px;
+  }
 }
 
 .cart-item__quantity .quantity__input {
@@ -85,6 +97,12 @@
   color: #000;
   text-decoration: underline;
   font-size: 16px;
+}
+
+@media screen and (max-width: 320px) {
+  .cart-item__quantity .quantity__remove {
+    font-size: 13px;
+  }
 }
 
 .cart-item__old-price {
