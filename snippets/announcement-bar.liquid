@@ -21,6 +21,7 @@
     }
   }
 {%- endstyle -%}
+<script>console.log({{section}})</script>
 {% if show_announcement %}
   <div class="toolbar__item toolbar__item--announcements">
     <div class="announcement-bar{% if section.settings.announcement_center %} text-center{% endif %}">
@@ -45,8 +46,9 @@
             {%- if block.type == 'announcement' -%}
               <div
                 id="AnnouncementSlide-{{ block.id }}"
-                class="slideshow__slide announcement-slider__slide flex--center"
+                class="slideshow__slidedd announcement-slider__slide flex--center"
                 data-index="{{ slide_index }}"
+                style="display: block;"
                 {{ block.shopify_attributes }}>
                 <div class="announcement-slider__content" style="margin:auto 0">
                   {%- if block.settings.richtext_mobile != blank -%}
