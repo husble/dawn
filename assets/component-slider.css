@@ -92,11 +92,11 @@ slider-component {
   margin: 0 1.2rem;
 }
 
-.slider-buttons {
+/* .slider-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 @media screen and (min-width: 990px) {
   .slider-buttons {
@@ -115,8 +115,33 @@ slider-component {
   background: transparent;
   border: none;
   cursor: pointer;
-  width: 44px;
-  height: 44px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: -5px 0px 5px rgb(0 0 0 / 10%);
+  background-color: #fff;
+  z-index: 2;
+}
+
+.slider-button--prev {
+  left: 3rem;
+}
+
+.slider-button--next {
+  right: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+  .slider-button--prev {
+    left: 0;
+  }
+  
+  .slider-button--next {
+    right: 0;
+  }
 }
 
 .slider-button:not([disabled]):hover {
@@ -124,7 +149,7 @@ slider-component {
 }
 
 .slider-button .icon {
-  height: 0.6rem;
+  height: 0.8rem;
 }
 
 .slider-button[disabled] .icon {
