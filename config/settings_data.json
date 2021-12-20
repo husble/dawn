@@ -97,6 +97,7 @@
         "blocks": {
           "toolbar-0": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "richtext": "<p>Free shipping on all orders over $100<\/p>",
               "richtext_mobile": "<p>Free shipping on all orders over $100<\/p>"
@@ -107,7 +108,7 @@
           "toolbar-0"
         ],
         "settings": {
-          "announcement_center": false,
+          "announcement_center": true,
           "toolbar_social": false,
           "show_locale_selector": true,
           "show_currency_selector": true,
