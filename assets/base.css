@@ -2599,6 +2599,10 @@ cart-items form {
   margin: 0;
 }
 
+#looxReviews {
+  max-width: 100% !important;
+}
+
 
 /* @media screen and (min-width: 769px) {
   .search-mobile {

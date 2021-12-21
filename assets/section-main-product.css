@@ -294,6 +294,11 @@ a.product__text {
 .product__title {
   word-break: break-word;
   margin-bottom: 1.5rem;
+  letter-spacing: 0;
+  line-height: 1.2;
+  font-family: 'Poppins';
+  font-weight: normal;
+  font-size: 30px;
 }
 
 .product__title + .product__text.caption-with-letter-spacing {
@@ -851,16 +856,21 @@ a.product__text {
 }
 
 .product-custom {
-  max-width: 1200px;
-  width: 96%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1500px;
+  width: 100%;
+  padding: 0 5rem;
 }
 
 @media screen and (min-width: 990px) {
   .product-custom .product__media-wrapper {
     margin-right: calc(120px / 2);
     width: calc(50% - 1rem / 2) !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-custom {
+    padding: 0 2.5rem;
   }
 }
 
