@@ -2595,6 +2595,10 @@ cart-items form {
   min-height: 16px;
 }
 
+.loox-rating span {
+  color: #000;
+}
+
 .product-option:empty {
   margin: 0;
 }
@@ -2603,6 +2607,9 @@ cart-items form {
   max-width: 100% !important;
 }
 
+.ks-chart-modal-link.sizing-chart-modal-link {
+  display: none;
+}
 
 /* @media screen and (min-width: 769px) {
   .search-mobile {

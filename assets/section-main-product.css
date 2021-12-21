@@ -23,11 +23,11 @@
 }
 
 @media screen and (min-width: 750px) {
-  .product__info-container--sticky {
+  /* .product__info-container--sticky {
     position: sticky;
     top: 3rem;
     z-index: 2;
-  }
+  } */
 
   .product__info-wrapper {
     padding-left: 5rem;
@@ -42,9 +42,9 @@
   .product:not(.product--no-media):not(.featured-product) .product__media-wrapper {
     max-width: 64%;
     width: calc(64% - 1rem / 2);
-    height: fit-content;
+    /* height: fit-content;
     position: sticky;
-    top: 120px;
+    top: 120px; */
   }
 
   .product:not(.product--no-media):not(.featured-product) .product__info-wrapper {
@@ -56,9 +56,9 @@
 
 @media screen and (min-width: 769px) {
   .product:not(.product--no-media):not(.featured-product) .product__media-wrapper {
-    height: fit-content;
+    /* height: fit-content;
     position: sticky;
-    top: 120px;
+    top: 120px; */
   }
 }
 
@@ -142,7 +142,6 @@
 
 /* Form Elements */
 .product-form__input {
-  flex: 0 0 100%;
   padding: 0;
   margin: 0 0 1.2rem 0;
   max-width: 37rem;
@@ -164,7 +163,10 @@ variant-selects {
 }
 
 fieldset.product-form__input .form__label {
-  margin-bottom: 0.2rem;
+  margin-bottom: 1.2rem;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .product-form__input input[type='radio'] {
@@ -236,7 +238,16 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__submit {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  background-color: #ff8831;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.product-form__submit {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .no-js .product-form__submit.button--secondary {
@@ -868,6 +879,13 @@ a.product__text {
   }
 }
 
+@media screen and (min-width: 769px) {
+  .product-single__sticky {
+    position: sticky;
+    top: 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .product-custom {
     padding: 0 2.5rem;
@@ -887,15 +905,18 @@ a.product__text {
   align-items: flex-end;
 }
 
+.purchase-details__quantity .quantity__input {
+  
+}
+
 .purchase-details__quantity {
-  margin-right: 5px;
-  width: calc(50% - 12px);
-  flex: 0 0 50%;
+  width: calc(30% - 12px);
   min-width: auto;
 }
 
 .purchase-details__quantity .quantity {
   width: 100%;
+  height: 45px;
 }
 
 .purchase-details__quantity label {
@@ -917,7 +938,7 @@ a.product__text {
 
 .purchase-details__buttons {
   display: flex;
-  flex: 1 0 calc(50% - 12px);
+  flex: 1 0 calc(70% - 12px);
   flex-wrap: wrap;
   margin-left: 6px;
 }
