@@ -21,12 +21,19 @@
   @media screen and (max-width: 768px) {
     .cart__scrollable {
       max-height: calc(100vh - 74px - 187px);
+      padding: 20px 20px 0;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    .cart__scrollable {
+      max-height: calc(100vh - 74px - 187px);
       padding: 20px 5px 0;
     }
   }
 
   .preview-image {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
   }
 
@@ -77,7 +84,7 @@
                 {%- if section.settings.show_vendor -%}
                   <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                 {%- endif -%}
-                <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
+                <a href="{{ item.url }}" class="cart-item__name h3 break">{{ item.product.title | escape }}</a>
                 {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
                   <div>
                     {%- if item.product.has_only_default_variant == false -%}

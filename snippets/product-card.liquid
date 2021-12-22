@@ -54,9 +54,11 @@
           <span class="visually-hidden">{{ product_card_product.metafields.reviews.rating_count }} {{ "accessibility.total_reviews" | t }}</span>
         </p>
       {%- endif -%}
-      <div class="loox-rating" data-id="{{ product_card_product.id }}" data-rating="{{ product_card_product.metafields.loox.avg_rating }}" data-raters="{{ product_card_product.metafields.loox.num_reviews }}"></div>
-        {% render 'price', product: product_card_product, price_class: '' %}
-      </div>
+      {%- if show_rating %}
+        <div class="loox-rating" data-id="{{ product_card_product.id }}" data-rating="{{ product_card_product.metafields.loox.avg_rating }}" data-raters="{{ product_card_product.metafields.loox.num_reviews }}"></div>
+      {%- endif -%}  
+      {% render 'price', product: product_card_product, price_class: '' %}
+    </div>
   </div>
 
   <div class="card card--product{% if product_card_product.featured_media == nil %} card--text-only card--soft{% endif %}{% if product_card_product.featured_media != nil and show_image_outline %} card--outline{% endif %}" tabindex="-1">

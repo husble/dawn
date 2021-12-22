@@ -19,8 +19,12 @@
 
 .price .price-item.price-item--sale {
   margin: 0 1rem 0 0;
-  font-size: 28px;
+  font-size: 20px;
   color: #fa3900;
+}
+
+.price .price-item.price-item--sale > span {
+  font-size: 14px;
 }
 
 .price:not(.price--show-badge) .price-item--last:last-of-type {

@@ -112,6 +112,9 @@
     "collection_title": "Your collection's name"
   },
   "products": {
+    "general": {
+      "from_text_html": "<span>from<\/span> {{ price }}"
+    },
     "product": {
       "add_to_cart": "Add to cart",
       "description": "Description",
@@ -139,7 +142,7 @@
         "refresh": "Refresh"
       },
       "price": {
-        "from_price_html": "From {{ price }}",
+        "from_price_html": "<span>from<\/span> {{ price }}",
         "regular_price": "Regular price",
         "sale_price": "Sale price",
         "unit_price": "Unit price"

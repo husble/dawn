@@ -19,12 +19,20 @@
   }
 
   .section-header__title {
-    text-align: center;
+    padding: 0 5rem;
   }
   
   @media only screen and (max-width:768px){
     .collections-featured .grid-item{
       padding:{{ section.settings.collection_padding_mobile}}px;
+    }
+
+    .section-header__title {
+      padding: 0 3.5rem;
+    }
+
+    .collections-featured {
+      padding: 0 3.5rem;
     }
   }
   
@@ -32,7 +40,7 @@
   <div class="page-width">
     {%- if section.settings.title != blank -%}
       <div class="section-header">
-        <h2 class="section-header__title" style="color: {{ section.settings.title_color}}; {% if section.settings.header_center %}text-align:center;{% endif %}">{{ section.settings.title }}</h2>
+        <h2 class="section-header__title uppercase" style="color: {{ section.settings.title_collectionColor }}; {% if section.settings.header_collectionCenter %}text-align:center;{% endif %}">{{ section.settings.title }}</h2>
       </div>
     {%- endif -%}
   
@@ -79,14 +87,15 @@
         },
         {
           "type": "color",
-          "id": "title_color",
+          "id": "title_collectionColor",
           "label": "Heading color",
-          "default": "#000000"
+          "default": "#ba2649"
         },
         {
           "type": "checkbox",
-          "id": "header_center",
-          "label": "Heading center"
+          "id": "header_collectionCenter",
+          "label": "Heading center",
+          "default": true
         },
         {
           "type": "checkbox",

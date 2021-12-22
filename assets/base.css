@@ -204,7 +204,9 @@ src: url("https://fonts.shopifycdn.com/poppins/poppins_i6.672e5321078e70c7e1abdb
 html.no-js .no-js:not(html) {
   display: block !important;
 }
-* {font-family: "Poppins", sans-serif; }
+* {
+  font-family: "Poppins", sans-serif;
+}
 
 .no-js-inline {
   display: none !important;
@@ -313,7 +315,7 @@ html.no-js .no-js-hidden {
 
   .page-width-desktop {
     max-width: var(--page-width);
-    padding: 0 5rem;
+    padding: 0;
   }
 }
 
@@ -994,8 +996,8 @@ summary::-webkit-details-marker {
   }
 
   .title-wrapper--self-padded-tablet-down {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }
 
@@ -1403,6 +1405,10 @@ deferred-media {
   position: absolute;
   height: 100%;
   display: flex;
+}
+
+.button {
+  box-shadow: none;
 }
 
 /* Button - social share */
@@ -2064,7 +2070,7 @@ input[type='checkbox'] {
 
 @media screen and (min-width: 990px) {
   .header {
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
   }
 
   .header--has-menu:not(.header--middle-left) {
@@ -2540,7 +2546,7 @@ details-disclosure > details {
 
 .search-mobile {
   position: absolute;
-  padding: 10px 20px;
+  padding: 10px 2.5rem;
   top: 0px;
   left: 0;
   width: 100%;
@@ -2607,8 +2613,20 @@ cart-items form {
   max-width: 100% !important;
 }
 
-.ks-chart-modal-link.sizing-chart-modal-link {
+/* .ks-chart-modal-link.sizing-chart-modal-link {
   display: none;
+} */
+
+.viewall {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Poppins";
 }
 
 /* @media screen and (min-width: 769px) {

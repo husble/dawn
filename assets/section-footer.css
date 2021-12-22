@@ -1,5 +1,6 @@
 .footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  color: #000;
 }
 
 .footer:not(.color-background-1) {
@@ -520,6 +521,10 @@ noscript .localization-selector.link {
   color: var(--color-foreground);
 }
 
+.footer__menu li {
+  line-height: 1.4;
+}
+
 .footer__menu a {
   display: inline-block;
   padding: 4px 0;
@@ -559,6 +564,7 @@ noscript .localization-selector.link {
   margin-bottom: 15px;
   font-weight: 700;
   font-size: 17px;
+  color: #000;
 }
 
 .footer__content-top {
@@ -610,6 +616,10 @@ noscript .localization-selector.link {
   position: absolute;
   height: 1px;
   width: 1px;
+}
+
+strong {
+  margin-right: 10px;
 }
 
 @media only screen and (max-width: 768px) {

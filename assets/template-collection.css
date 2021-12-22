@@ -4,6 +4,7 @@
 
 .collection {
   position: relative;
+  padding: 0 5rem;
 }
 
 @media screen and (max-width: 749px) {
@@ -14,6 +15,12 @@
 
   .collection .title:not(.title--no-heading) {
     margin-top: -1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .collection {
+    padding: 0 2.5rem;
   }
 }
 

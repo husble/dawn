@@ -4,10 +4,12 @@
         display: flex;
         margin-bottom: 20px;
     }
+    .husble-customization-wrap {
+        padding: 0 5rem;
+    }
     .husble-customization__title{
         margin-bottom: 30px;
-        text-align: center;
-        color: {{ section.settings.header_color }}
+        color: {{ section.settings.header_colors }};
     }
     .husble-customization__box{
         flex: 0 0 33%;
@@ -37,11 +39,11 @@
         display: flex;
         justify-content: center;
     }
-    @media screen and (max-width: 768px){
-        .husble-customization__containter{
+    @media screen and (max-width: 768px) {
+        .husble-customization__containter {
             flex-direction: column;
         }
-        .husble-customization__box{
+        .husble-customization__box {
             flex: 0 0 100%;
             flex-direction: row;
             padding: 0;
@@ -50,48 +52,53 @@
         .husble-customization__content__image, .husble-customization__content{
             flex: 0 0 50%;
         }
+        .husble-customization-wrap {
+            padding: 0 3.5rem;
+        }
     }
 </style>
 
 
 <div class="page-width">
-    <h2 class="husble-customization__title">{{ section.settings.header }}</h2>
-    <div class="husble-customization__containter">
-        <div class="husble-customization__box">
-            <div class="husble-customization__content__image">
-                <img src="{{ section.settings.image_1 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
+    <div class="husble-customization-wrap">
+        <h2 class="husble-customization__title uppercase" style="{% if section.settings.header_Center %}text-align:center;{% endif %}">{{ section.settings.header }}</h2>
+        <div class="husble-customization__containter">
+            <div class="husble-customization__box">
+                <div class="husble-customization__content__image">
+                    <img src="{{ section.settings.image_1 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
+                </div>
+                <div class="husble-customization__content">
+                    <div class="husble-customization__content__title"> {{section.settings.title_1}} </div>
+                    <div class="husble-customization__content__detail"> {{section.settings.detail_1}} </div>
+                </div>
             </div>
-            <div class="husble-customization__content">
-                <div class="husble-customization__content__title"> {{section.settings.title_1}} </div>
-                <div class="husble-customization__content__detail"> {{section.settings.detail_1}} </div>
+            <div class="husble-customization__box">
+                <div class="husble-customization__content__image">
+                    <img src="{{ section.settings.image_2 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
+                </div>
+                <div class="husble-customization__content">
+                    <div class="husble-customization__content__title"> {{section.settings.title_2}} </div>
+                    <div class="husble-customization__content__detail"> {{section.settings.detail_2}} </div>
+                </div>
+            </div>
+            <div class="husble-customization__box">
+                <div class="husble-customization__content__image">
+                    <img src="{{ section.settings.image_3 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
+                </div>
+                <div class="husble-customization__content">
+                    <div class="husble-customization__content__title"> {{section.settings.title_3}} </div>
+                    <div class="husble-customization__content__detail"> {{section.settings.detail_3}} </div>
+                </div>
             </div>
         </div>
-        <div class="husble-customization__box">
-            <div class="husble-customization__content__image">
-                <img src="{{ section.settings.image_2 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
-            </div>
-            <div class="husble-customization__content">
-                <div class="husble-customization__content__title"> {{section.settings.title_2}} </div>
-                <div class="husble-customization__content__detail"> {{section.settings.detail_2}} </div>
-            </div>
-        </div>
-        <div class="husble-customization__box">
-            <div class="husble-customization__content__image">
-                <img src="{{ section.settings.image_3 | img_url: '400x' }}" alt="" class="customization-step-image lazyloaded" loading="lazy">
-            </div>
-            <div class="husble-customization__content">
-                <div class="husble-customization__content__title"> {{section.settings.title_3}} </div>
-                <div class="husble-customization__content__detail"> {{section.settings.detail_3}} </div>
-            </div>
+        <div class="flex--center--no-align">
+            <a href="{{ section.settings.url }}" 
+                class="{% if section.settings.link_btn %}btn button viewall{% else %}section-header__link{% endif %}"
+                style="{% if section.settings.link_btn %}background-color: {{section.settings.link_btn_color}}{% endif %}"
+                >{{section.settings.url_title}}</a>
         </div>
     </div>
-    <div class="flex--center--no-align">
-        <a href="{{ section.settings.url }}" 
-            class="{% if section.settings.link_btn %}btn button{% else %}section-header__link{% endif %}"
-            style="{% if section.settings.link_btn %}background-color: {{section.settings.link_btn_color}}{% endif %}"
-            >{{section.settings.url_title}}</a>
-    </div>
-</h2>
+</div>
 
 {% schema %}
 {
@@ -106,9 +113,15 @@
         },
         {
             "type": "color",
-            "id": "header_color",
+            "id": "header_colors",
             "label": "Header color",
-            "default": "#000000"
+            "default": "#ba2649"
+        },
+        {
+            "type": "checkbox",
+            "id": "header_Center",
+            "label": "Heading center",
+            "default": true
         },
       {
           "type": "image_picker",

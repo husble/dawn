@@ -16,9 +16,19 @@
     assign more_in_collection = true
   endif
 -%}
+{% style %}
+
+  .custom-header {
+    {% if section.settings.header_center %}
+      text-align: center;
+    {% else %}
+      text-align: left;
+    {% endif %}
+  }
+{% endstyle %}
 <div class="collection page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 %} page-width-desktop{% endif %}">
   <div class="title-wrapper-with-link{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %}">
-    <h2 class="title{% if section.settings.title == blank %} title--no-heading{% endif %}">{{ section.settings.title | escape }}</h2>
+    <h2 style="width: 100%; color: {{ section.settings.title_color }};" class="title{% if section.settings.title == blank %} title--no-heading{% endif %} uppercase custom-header">{{ section.settings.title | escape }}</h2>
   </div>
 
   <slider-component class="slider-mobile-gutter">
@@ -58,18 +68,37 @@
   </slider-component>
   {%- if section.settings.show_view_all and section.settings.swipe_on_mobile and more_in_collection -%}
     <div class="center">
-      <a href="{{ section.settings.collection.url }}" class="button underlined-link large-up-hide">{{ 'sections.featured_collection.view_all' | t }}</a>
+      {% if section.settings.link_btn %}
+        <a href="{{ section.settings.collection.url }}" class="button viewall underlined-link large-up-hide">{{ 'sections.featured_collection.view_all' | t }}</a>
+      {% else %}
+        <a href="{{ section.settings.collection.url }}"
+          class="link viewall underlined-link large-up-hide"
+          aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title }}"
+        >
+          {{ 'sections.featured_collection.view_all' | t }}
+        </a>
+      {% endif %}
     </div>
   {%- endif -%}
 
   {%- if section.settings.show_view_all and more_in_collection -%}
     <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
-      <a href="{{ section.settings.collection.url }}"
-        class="button"
-        aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title }}"
-      >
-        {{ 'sections.featured_collection.view_all' | t }}
-      </a>
+      {% if section.settings.link_btn %}
+        <a href="{{ section.settings.collection.url }}"
+          class="button viewall"
+          aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title }}"
+          style="background-color: {{ section.settings.link_btn_color }}"
+        >
+          {{ 'sections.featured_collection.view_all' | t }}
+        </a>
+      {% else %}
+        <a href="{{ section.settings.collection.url }}"
+          class="link viewall"
+          aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title }}"
+        >
+          {{ 'sections.featured_collection.view_all' | t }}
+        </a>
+      {% endif %}
     </div>
   {%- endif -%}
 </div>
@@ -85,6 +114,18 @@
       "id": "title",
       "default": "Featured collection",
       "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#ba2649"
+    },
+    {
+      "type": "checkbox",
+      "id": "header_center",
+      "label": "Heading center",
+      "default": true
     },
     {
       "type": "collection",
@@ -159,6 +200,24 @@
       "id": "show_vendor",
       "default": false,
       "label": "t:sections.featured-collection.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_btn",
+      "label": "'View all' is Button",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "link_btn_color",
+      "label": "Button color",
+      "default": "#ff8831"
+    },
+    {
+      "type": "checkbox",
+      "id": "view_all_bottom",
+      "label": "'View all' at bottom?",
+      "default": true
     },
     {
       "type": "checkbox",

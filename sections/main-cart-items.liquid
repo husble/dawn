@@ -56,7 +56,7 @@
                       {%- if section.settings.show_vendor -%}
                         <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                       {%- endif -%}
-                      <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
+                      <a href="{{ item.url }}" class="cart-item__name h3 break">{{ item.product.title | escape }}</a>
                       {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
                         <div>
                           {%- if item.product.has_only_default_variant == false -%}
@@ -70,6 +70,23 @@
                         </div>
                         <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                       {%- endif -%}
+                      {% if item.properties['_husblizer-preview-url'] != blank %}
+                        <span class="customily-image" style="display:none;">{{ item.properties['_husblizer-preview-url'] }}</span>
+                      {% elsif item.properties['_customily-preview'] != blank %}
+                        <span class="customily-image" style="display:none;">{{ item.properties['_customily-preview'] }}</span>
+                      {% elsif item.image != blank %}
+                        <span class="customily-image" style="display:none;">{{ item.image | img_url: '1000x' }}</span>
+                      {% endif %}
+                      <p
+                        onclick="showCustomily(event)" 
+                        style="margin-bottom: 7px; margin-top: 7px; cursor: pointer;"
+                        class="preview-image"
+                      >
+                        Personalization:
+                        <span style="color: {{ settings.personalization_link_color }}">
+                          click here to preview image
+                        </span>
+                      </p>
                       <div class="cart__item-sub">
                         <div class="cart-item__quantity">
                           <div class="cart-item__quantity-wrapper">
