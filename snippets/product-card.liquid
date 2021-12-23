@@ -74,7 +74,7 @@
 
         <div{% if add_image_padding %} class="card__media-full-spacer"{% endif %}>
           <div class="media media--transparent media--{{ media_size }} media--hover-effect"
-            {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
+            {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: 100%;"{% endif %}
           >
             <img
               srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
@@ -122,13 +122,13 @@
         </div>
       {%- endif -%}
 
-      <div class="card__badge">
+      <!-- <div class="card__badge">
         {%- if product_card_product.available == false -%}
           <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
         {%- elsif product_card_product.compare_at_price > product_card_product.price and product_card_product.available -%}
           <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
         {%- endif -%}
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

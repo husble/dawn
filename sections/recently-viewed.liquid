@@ -1,0 +1,58 @@
+  {{ '//code.jquery.com/jquery-3.3.1.js' | script_tag }}
+  {{ '//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js' | script_tag }}
+  {{ 'jquery.products.min.js' | asset_url | script_tag }}
+  {{ 'recently-viewed.css' | asset_url | stylesheet_tag }}
+
+  {% if template contains 'product' %}
+  <script>
+    Shopify.Products.recordRecentlyViewed();
+  </script>
+  {% endif %}
+  <div class="recently-viewed-wrap page-width">
+    <h3 class="recently-viewed-title">RECENTLY VIEWED</h3>
+    <div id="recently-viewed-products" style="display:none">
+    </div>
+  </div>
+  {% raw %}
+    <script id="recently-viewed-product-template"  type="text/x-jquery-tmpl">
+      <div id="product-${handle}" class="product">
+        <div class="image">
+          <a href="${url}">
+            <img data-widths="[160, 200, 280, 360, 540, 720, 900]" class="lazyload" data-src="${Shopify.Products.resizeImage(featured_image, "medium")}" />
+          </a>
+        </div>
+        <div class="details">
+          <a href="${url}" class="product__name">
+            <span class="title">${title}</span>
+            <div class="price-detail">
+              <span class="price">{{if price_varies}}from <strong>{{/if}}${Shopify.formatMoney(price)}</strong></span>
+              {{if compare_at_price > price}}<span class="price-regular">${Shopify.formatMoney(compare_at_price)}</span>{{/if}}
+            </div>
+          </a>
+        </div>
+      </div>
+    </script>
+  {% endraw %}
+  {% schema %}
+    {
+      "name": "Recently viewed",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Recently viewed products are only visible when browsing outside of the editor"
+        },
+        {
+          "type": "range",
+          "id": "count",
+          "label": "Number of recently products",
+          "default": 5,
+          "min": 1,
+          "max": 8,
+          "step": 1
+        }
+      ]
+    }
+  {% endschema %}
+  <script>
+    Shopify.Products.showRecentlyViewed({ howManyToShow: {{ section.settings.count }} });
+  </script>

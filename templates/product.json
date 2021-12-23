@@ -96,6 +96,12 @@
         "show_rating": false
       }
     },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "setttings": {
+
+      }
+    },
     "loox-product-reviews-app-section": {
       "type": "apps",
       "blocks": {
@@ -126,6 +132,7 @@
     "zp-product-header-content",
     "main",
     "product-recommendations",
+    "recently-viewed",
     "loox-product-reviews-app-section",
     "zp-product-footer-content"
   ]

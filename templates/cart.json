@@ -11,10 +11,17 @@
         "collection": "all",
         "image_ratio": "square"
       }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "setttings": {
+
+      }
     }
   },
   "order": [
     "cart-items",
-    "featured-products"
+    "featured-products",
+    "recently-viewed"
   ]
 }
