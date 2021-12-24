@@ -67,6 +67,7 @@
         },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
@@ -77,6 +78,14 @@
             "heading": "Shipping information",
             "content": "",
             "page": "shipping-information"
+          }
+        },
+        "a201606a-50e8-4544-9852-c9beeb94a00a": {
+          "type": "tab",
+          "settings": {
+            "heading": "Why choose us?",
+            "content": "",
+            "page": "why-choose-us"
           }
         }
       },
@@ -91,7 +100,8 @@
         "buy_buttons",
         "description",
         "share",
-        "73c68962-a8a6-4496-ac7d-8ad02e829f1a"
+        "73c68962-a8a6-4496-ac7d-8ad02e829f1a",
+        "a201606a-50e8-4544-9852-c9beeb94a00a"
       ],
       "settings": {
         "enable_sticky_info": true,
