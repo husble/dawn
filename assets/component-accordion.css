@@ -3,6 +3,15 @@
   position: relative;
   line-height: 1;
   padding: 1.5rem 0;
+  font-family: 'Poppins';
+  color: #000;
+}
+
+.description_container {
+  color: #000;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Poppins";
 }
 
 .accordion .summary__title {
@@ -10,8 +19,11 @@
   flex: 1;
 }
 
-.accordion .summary__title + .icon-caret {
-  height: calc(var(--font-heading-scale) * 0.6rem);
+.accordion .summary__title + .icon-caret,
+.description_wrap .summary__title + .icon-caret
+ {
+  height: 15px;
+  width: 15px;
 }
 
 .accordion + .accordion {
@@ -20,18 +32,26 @@
 }
 
 .accordion {
-  margin-top: 2.5rem;
   margin-bottom: 0;
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  font-family: "Poppins";
 }
 
-.accordion__title {
+.accordion__title,
+.description__title {
   display: inline-block;
   max-width: calc(100% - 6rem);
   min-height: 1.6rem;
   margin: 0;
   word-break: break-word;
+  font-size: 20px;
+  color: #000;
+  font-weight: 600;
+}
+
+.description_content {
+  padding: 0 15px;
 }
 
 .accordion .icon-accordion {
@@ -54,3 +74,16 @@
 .accordion__content img {
   max-width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .description_container {
+    font-size: 15px;
+  }
+
+  .accordion__title,
+  .description__title {
+    font-size: 16px;
+    font-family: 'Poppins';
+  }
+}
+

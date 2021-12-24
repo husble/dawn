@@ -52,7 +52,6 @@
     /* padding-left: 4rem; */
     width: 48%;
     margin-left: 1%;
-    pa
     /* width: calc(50% - 1rem / 2); */
   }
 }
@@ -325,6 +324,7 @@ a.product__text {
 
 .product__accordion .accordion__content {
   padding: 0 1rem;
+  color: #000;
 }
 
 .product .price {

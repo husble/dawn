@@ -93,6 +93,25 @@
   .recently-viewed-wrap {
     padding: 0 2.5rem;
   }
+
+  #recently-viewed-products {
+    overflow: scroll;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+  }
+
+  #recently-viewed-products .product {
+    width: calc(40% - 10px);
+    background-color: #f8f8f8;
+  }
+
+  #recently-viewed-products .product .image {
+    height: 180px;
+  }
+
+  #recently-viewed-products .product .title {
+    font-size: 14px;
+  }
 }
 
 
