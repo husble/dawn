@@ -30,6 +30,12 @@
         "price": {
           "type": "price",
           "settings": {
+            "regular_price_color": "#000000",
+            "regular_price_weight": "400",
+            "regular_price_size": "0.8em",
+            "final_price_color": "#000000",
+            "final_price_weight": "bold",
+            "final_price_size": "1em"
           }
         },
         "loox-rating": {
@@ -64,6 +70,14 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "73c68962-a8a6-4496-ac7d-8ad02e829f1a": {
+          "type": "tab",
+          "settings": {
+            "heading": "Shipping information",
+            "content": "",
+            "page": "shipping-information"
+          }
         }
       },
       "block_order": [
@@ -76,7 +90,8 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "73c68962-a8a6-4496-ac7d-8ad02e829f1a"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -98,8 +113,8 @@
     },
     "recently-viewed": {
       "type": "recently-viewed",
-      "setttings": {
-
+      "settings": {
+        "count": 5
       }
     },
     "loox-product-reviews-app-section": {
