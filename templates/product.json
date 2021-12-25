@@ -10,6 +10,7 @@
       "blocks": {
         "vendor": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ product.vendor }}",
             "text_style": "uppercase"
@@ -63,6 +64,7 @@
         "description": {
           "type": "description",
           "settings": {
+            "show_tab": true
           }
         },
         "share": {
