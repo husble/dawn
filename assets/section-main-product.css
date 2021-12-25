@@ -998,3 +998,9 @@ a.product__text {
 .is-hidden {
   display: none!important;
 }
+
+@media screen and (max-width: 768px) {
+  .product__title {
+    font-size: 20px;
+  }
+}

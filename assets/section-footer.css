@@ -623,18 +623,42 @@ strong {
 }
 
 @media only screen and (max-width: 768px) {
+
+  .footer__blocks {
+    gap: 0;
+  }
+
   .footer__content-top .footer-block {
     justify-content: initial;
   }
   .footer__content-top {
-    padding: 1rem;
+    padding: 0 2.5rem;
   }
 
   .footer__block {
     max-width: none;
     flex: 1 0 50%;
+    padding: 20px 0px;
+    border-bottom: solid 1px #000;
   }
   .footer__block[data-type=contact], .footer__block[data-type=payment] {
     flex: 1 0 100%;
   }
+
+  .footer__title {
+    font-size: 15px;
+  }
+
+  .footer__menu li {
+    font-size: 14px;
+  }
+
+  .footer__social {
+    margin: 0;
+  }
+
+  .payment-icons {
+    margin: 0;
+  }
+
 }
