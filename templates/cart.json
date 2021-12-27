@@ -7,15 +7,30 @@
     },
     "featured-products": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
+        "title": "Featured collection",
+        "title_color": "#ba2649",
+        "header_center": true,
         "collection": "all",
-        "image_ratio": "square"
+        "products_to_show": 5,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "link_btn": false,
+        "link_btn_color": "#ff8831",
+        "view_all_bottom": true,
+        "show_rating": false
       }
     },
     "recently-viewed": {
       "type": "recently-viewed",
-      "setttings": {
-
+      "settings": {
+        "count": 5
       }
     }
   },
