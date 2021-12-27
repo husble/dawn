@@ -1,12 +1,7 @@
 .product-recommendations {
   display: block;
   padding: 0 5rem;
-}
-
-@media screen and (max-width: 768px) {
-  .product-recommendations {
-    padding: 0 2.5rem;
-  }
+  font-family: 'Poppins';
 }
 
 .product-recommendations__heading {
@@ -17,4 +12,31 @@
   text-transform: uppercase;
   font-size: 28px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .product-recommendations {
+    padding: 0 2.5rem;
+  }
+
+  .product-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .product-recommendations__heading {
+    font-size: 20px;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .product-recommendations__heading {
+    font-size: 18px;
+  }
+
+  .product-recommendations {
+    padding: 0 1rem;
+  }
 }

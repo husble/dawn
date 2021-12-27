@@ -22,6 +22,18 @@
   .collection {
     padding: 0 2.5rem;
   }
+
+  .collection .slider-mobile-gutter ul {
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .collection {
+    padding: 0 1rem;
+  }
 }
 
 @media screen and (min-width: 750px) {

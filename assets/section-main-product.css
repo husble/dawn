@@ -328,7 +328,7 @@ a.product__text {
 }
 
 .product .price {
-  align-items: flex-start;
+  /* align-items: flex-start; */
 }
 
 .product .price .badge {
@@ -903,6 +903,12 @@ a.product__text {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .product-custom {
+    padding: 0 1rem;
+  }
+}
+
 .product-custom .product__media-wrapper slider-component {
   padding: 0;
 }
@@ -961,7 +967,7 @@ a.product__text {
   position: absolute;
   background-color: transparent;
   height: 100%;
-  z-index: 10;
+  z-index: 8;
 }
 
 .purchase-details__quantity button[name="minus"] {

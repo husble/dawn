@@ -209,6 +209,7 @@
   position: relative;
   text-decoration: none;
   background-color: #f8f8f8;
+  height: 100%;
 }
 
 .card-wrapper .card-information {

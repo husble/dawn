@@ -10,6 +10,7 @@
   text-transform: uppercase;
   color: #ba2649;
   font-weight: 600;
+  font-family: 'Poppins';
 }
 
 #recently-viewed-products {
@@ -29,7 +30,7 @@
 }
 
 #recently-viewed-products .product .image {
-  height: 250px;
+  /* height: 250px; */
   width: 100%;
   overflow: hidden;
 }
@@ -72,8 +73,8 @@
 
 #recently-viewed-products .product .price-detail {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  flex-wrap: wrap;
 }
 
 #recently-viewed-products .product .price-detail .price-regular {
@@ -100,20 +101,46 @@
     scroll-behavior: smooth;
   }
 
+  .recently-viewed-title {
+    font-size: 20px;
+  }
+
   #recently-viewed-products .product {
-    width: calc(40% - 10px);
+    width: calc(50% - 10px);
     background-color: #f8f8f8;
+    flex-shrink: 0;
   }
 
   #recently-viewed-products .product .image {
-    height: 180px;
+    height: 353px;
   }
 
   #recently-viewed-products .product .title {
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  #recently-viewed-products .product .price strong {
+    font-size: 20px;
   }
 }
 
+@media screen and (max-width: 500px) {
+  .recently-viewed-wrap {
+    padding: 0 1rem;
+  }
+
+  .recently-viewed-title {
+    font-size: 18px;
+  }
+
+  #recently-viewed-products .product {
+    width: calc(80% - 10px);
+  }
+
+  #recently-viewed-products .product .image {
+    height: 300px;
+  }
+}
 
 
   
