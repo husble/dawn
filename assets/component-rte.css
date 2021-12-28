@@ -21,16 +21,6 @@ h1 {
   font-weight: 600;
 }
 
-@media screen and (min-width: 750px) {
-  h1 {
-    font-size: 4rem;
-  }
-  .rte table td {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-  }
-}
-
 .rte img {
   height: auto;
   max-width: 100%;
@@ -66,4 +56,14 @@ h1 {
 
 .rte blockquote > * {
   margin: -0.5rem 0 -0.5rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+  .rte table td {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
 }

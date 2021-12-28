@@ -34,7 +34,22 @@
   padding-bottom: 5rem;
 }
 
-@media screen and (min-width: 750px) {
+/* Blocks */
+
+.rich-text__blocks > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.rich-text__blocks > * + * {
+  margin-top: 2rem;
+}
+
+.rich-text__blocks > * + a {
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 769px) {
   .rich-text:not(.rich-text--full-width),
   .rich-text--full-width.color-background-1 {
     margin-top: calc(5rem + var(--page-width-margin));
@@ -60,19 +75,4 @@
   .rich-text__blocks {
     max-width: 78rem;
   }
-}
-
-/* Blocks */
-
-.rich-text__blocks > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.rich-text__blocks > * + * {
-  margin-top: 2rem;
-}
-
-.rich-text__blocks > * + a {
-  margin-top: 3rem;
 }
