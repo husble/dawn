@@ -134,11 +134,14 @@ This file can be re-written at any time.
   
 	{{ shop.metafields.loox["global_html_head"] }}
 
+  {% include 'teeinblue-scripts' %}
 </head>
 
 
   
 <body class="gradient">
+  {% include 'teeinblue-product-loader' %}
+
   
   
   {{ content_for_layout }}

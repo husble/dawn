@@ -129,7 +129,10 @@ If you plan to remove PageFly, please see the guide in our help center first: ht
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
   
 	{{ shop.metafields.loox["global_html_head"] }}
+  {% include 'teeinblue-scripts' %}
 </head>
 
-  <body class="gradient"><div class="pagefly-container">{{ content_for_layout }}</div></body>
+  <body class="gradient">
+  {% include 'teeinblue-product-loader' %}
+<div class="pagefly-container">{{ content_for_layout }}</div></body>
 </html>

@@ -1,0 +1,147 @@
+<!-- teeinblue scripts. DON'T MODIFY!!! -->
+<script type="text/javascript" src="https://sdk.teeinblue.com/shopify/app-v1.js?token=p6yJXr4AdpGUvBD5GXLEK0illfBlV4Xk&shop=vietliver.myshopify.com" defer="defer"></script>
+
+<script>
+window.teeinblueShop = {
+  shopCurrency: {{ shop.currency | json }},
+};
+</script>
+{% if template contains 'product' %}
+{% assign version = product.metafields.teeinblue.campaign_version %}
+{% assign teeProduct = false %}
+{% assign startDate = "2020-03-31 23:59:59" | date: "%s" %}
+{% assign endDate = "2020-10-20 00:00:00" | date: "%s" %}
+{% assign productCreatedDate = product.created_at | date: "%s" %}
+{% assign productVendor = product.vendor | downcase %}
+{% if version or productVendor == "teeinblue" and productCreatedDate > startDate and productCreatedDate < endDate %}
+  {% assign teeProduct = true %}
+{% endif %}
+{% if version %}
+<link rel="preload" href="https://api.teeinblue.com/api/merchant/campaigns/{{ product.id }}.json?shop={{ shop.permanent_domain }}&v={{ version }}" as="fetch" crossorigin="anonymous">
+{% endif %}
+<script id="teeinblue-product-data">
+window.TeeInBlueCampaign = {
+  {% if version %}
+    version: {{ version }},
+  {% endif %}
+  isTeeInBlueProduct: {{ teeProduct }},
+  productId: {{ product.id }},
+};
+</script>
+{% if teeProduct %}
+<style>
+  @keyframes tee-spinner-grow {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes tee-spinner-grow {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  .teeinblue-product-loading .teeinblue-page-loader {
+    display: flex !important;
+  }
+  .teeinblue-page-loader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2147483647;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,.96);
+  }
+  .tee-spinner-grow {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    vertical-align: text-bottom;
+    background-color: #333;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-animation: spinner-grow .75s linear infinite;
+    animation: tee-spinner-grow 1s linear infinite;
+  }
+  .tee-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+  }
+  .teeinblue-product-loading main,
+  .teeinblue-product-loading .site-wrapper,
+  .teeinblue-product-loading .main-content,
+  .teeinblue-product-loading .mainContentArea,
+  .teeinblue-product-loading .product-page-wrapper,
+  .teeinblue-product-loading .product__content,
+  .teeinblue-product-loading .main,
+  .teeinblue-product-loading .global-wrapper,
+  .teeinblue-product-loading .content-main,
+  .teeinblue-product-loading .layout--main-content,
+  .teeinblue-product-loading .page-body-content {
+    opacity: 0;
+  }
+</style>
+<script>
+  function teeinblueDocumentReady(fn) {
+    if (document.readyState != 'loading') {
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
+  function teeinblueAddLoader() {
+    var rootEl = document.documentElement;
+
+    if (rootEl) {
+      rootEl.classList.add('teeinblue-product-loading');
+    }
+  }
+
+  function teeinblueHideLoader() {
+    var rootEl = document.documentElement;
+
+    if (rootEl) {
+      rootEl.classList.remove('teeinblue-product-loading');
+    }
+  }
+
+  if (/\/products\/([A-Za-z0-9-_%]+)(\/)?/.test(window.location.href)) {
+    teeinblueAddLoader();
+  }
+
+  teeinblueDocumentReady(function() {
+    var timeout = window.TeeInBlue && window.TeeInBlue.loaderTimeout
+      ? window.TeeInBlue.loaderTimeout
+      : 3000;
+
+    document.addEventListener('teeinblue-event-component-injected', function() {
+      teeinblueHideLoader();
+    });
+
+    setTimeout(function() {
+      teeinblueHideLoader();
+    }, timeout);
+  });
+</script>
+{% endif %}
+{% endif %}
+<!-- teeinblue scripts end. -->
