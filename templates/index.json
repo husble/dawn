@@ -18,8 +18,8 @@
             "button_color": "#000000",
             "text_align": "vertical-bottom horizontal-center",
             "margin_top_btn": 8,
-            "image": "shopify:\/\/shop_images\/WEB-FINAL-DOG_2df7d5be-46a7-4a70-af3f-6e45cc3394d1.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/three-spanakopita-spirals-on-textured-plate.jpg",
+            "image": "shopify:\/\/shop_images\/Test-dog.png",
+            "image_mobile": "shopify:\/\/shop_images\/mobile_final_dog.jpg",
             "overlay_opacity": 0,
             "focal_point": "center center"
           }
