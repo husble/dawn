@@ -18,8 +18,8 @@
             "button_color": "#000000",
             "text_align": "vertical-bottom horizontal-center",
             "margin_top_btn": 8,
-            "image": "shopify:\/\/shop_images\/1-_1.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/2-_2.jpg",
+            "image": "shopify:\/\/shop_images\/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/three-spanakopita-spirals-on-textured-plate.jpg",
             "overlay_opacity": 0,
             "focal_point": "center center"
           }
@@ -63,6 +63,8 @@
       "type": "featured-collection",
       "settings": {
         "title": "Featured products",
+        "title_color": "#ba2649",
+        "header_center": true,
         "collection": "all",
         "products_to_show": 5,
         "show_view_all": true,
@@ -72,6 +74,9 @@
         "add_image_padding": false,
         "show_image_outline": true,
         "show_vendor": false,
+        "link_btn": false,
+        "link_btn_color": "#ff8831",
+        "view_all_bottom": true,
         "show_rating": false
       }
     },
@@ -83,7 +88,6 @@
           "settings": {
             "collection": "apparel",
             "title": "ggjgjh",
-            "image_cover": "shopify:\/\/shop_images\/Greetng-card-banner.jpg",
             "collection_image_border_radius": 0
           }
         },
@@ -92,7 +96,6 @@
           "settings": {
             "collection": "beer-and-dogs-collection",
             "title": "klkl",
-            "image_cover": "shopify:\/\/shop_images\/Greetng_card_banner3.jpg",
             "collection_image_border_radius": 0
           }
         },
@@ -101,7 +104,6 @@
           "settings": {
             "collection": "cloth-face-mask",
             "title": "hgfhgfh",
-            "image_cover": "shopify:\/\/shop_images\/10_8b246dfc-8c6f-4191-a8c3-48b60c853c0d.jpg",
             "collection_image_border_radius": 0
           }
         },
@@ -110,7 +112,6 @@
           "settings": {
             "collection": "frontpage",
             "title": "lpopl",
-            "image_cover": "shopify:\/\/shop_images\/10.jpg",
             "collection_image_border_radius": 0
           }
         },
@@ -119,7 +120,6 @@
           "settings": {
             "collection": "cat-lovers",
             "title": "fgfgdfg",
-            "image_cover": "shopify:\/\/shop_images\/Greetng_card_banner.jpg",
             "collection_image_border_radius": 0
           }
         },
@@ -128,7 +128,6 @@
           "settings": {
             "collection": "coffee-mugs-1",
             "title": "vbvn",
-            "image_cover": "shopify:\/\/shop_images\/6954380558520_overlay.jpg",
             "collection_image_border_radius": 5
           }
         }
@@ -143,8 +142,8 @@
       ],
       "settings": {
         "title": "Popular categories",
-        "title_color": "#000000",
-        "header_center": false,
+        "title_collectionColor": "#ba2649",
+        "header_collectionCenter": true,
         "divider": false,
         "collection_padding_desktop": 10,
         "collection_padding_mobile": 5,
@@ -156,7 +155,8 @@
       "type": "husble-customization",
       "settings": {
         "header": "How To Customize Yours?",
-        "header_color": "#000000",
+        "header_colors": "#ba2649",
+        "header_Center": true,
         "image_1": "shopify:\/\/shop_images\/2_2.png",
         "title_1": "<p><strong>Step 1: Choose Product<\/strong><\/p>",
         "detail_1": "<p><em>Choose the product you want to purchase.<\/em><\/p>",
@@ -176,6 +176,8 @@
       "type": "featured-collection",
       "settings": {
         "title": "GIFTS FOR DOG LOVERS",
+        "title_color": "#ba2649",
+        "header_center": true,
         "collection": "dog-lovers-gifts",
         "products_to_show": 5,
         "show_view_all": true,
@@ -185,6 +187,9 @@
         "add_image_padding": false,
         "show_image_outline": true,
         "show_vendor": false,
+        "link_btn": false,
+        "link_btn_color": "#ff8831",
+        "view_all_bottom": true,
         "show_rating": false
       }
     },
@@ -192,6 +197,8 @@
       "type": "featured-collection",
       "settings": {
         "title": "GIFTS FOR CAT LOVERS",
+        "title_color": "#ba2649",
+        "header_center": true,
         "collection": "cat-lover-christmas-gifts",
         "products_to_show": 5,
         "show_view_all": true,
@@ -201,31 +208,14 @@
         "add_image_padding": false,
         "show_image_outline": true,
         "show_vendor": false,
+        "link_btn": false,
+        "link_btn_color": "#ff8831",
+        "view_all_bottom": true,
         "show_rating": false
       }
     },
     "163878671924ba9984": {
       "type": "apps",
-      "blocks": {
-        "939a8f7f-a654-44cc-b8d3-484f3a4fc2b0": {
-          "type": "shopify:\/\/apps\/loox-photo-reviews\/blocks\/loox-carousel-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "max_width": 1920,
-            "text_color": "#000000",
-            "background_color": "#ffffff",
-            "arrows_color": "#000000",
-            "dots_color": "#000000",
-            "button_color": "#000000",
-            "show_more": true,
-            "only_photos": false,
-            "use_widget_font": true,
-            "product_handle": ""
-          }
-        }
-      },
-      "block_order": [
-        "939a8f7f-a654-44cc-b8d3-484f3a4fc2b0"
-      ],
       "settings": {
         "include_margins": true
       }
