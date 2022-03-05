@@ -2534,6 +2534,7 @@ details-disclosure > details {
   justify-content: space-around;
   visibility: hidden;
   transition: transform .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 0 0 25px rgb(0 0 0 / 10%);
 }
 
 .search-mobile > div {

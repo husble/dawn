@@ -8,10 +8,14 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" defer></link>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/slick-carousel@1.7.1/slick/slick.css" >
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/slick-carousel@1.7.1/slick/slick-theme.css" >
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" defer></link> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.7.1/slick/slick.js" defer></script> -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.7.1/slick/slick.js" defer></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script> -->
 
 {% style %}
   img {
@@ -554,53 +558,106 @@
 {% endjavascript %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    $.fancybox.defaults.animationEffect = 'fade';
-    $.fancybox.defaults.transitionEffect = 'fade';
-    $.fancybox.defaults.hash = false;
-    $.fancybox.defaults.infobar = false;
-    $.fancybox.defaults.toolbar = false;
-    $.fancybox.defaults.arrows = false;
-    $.fancybox.defaults.loop = true;
-    $.fancybox.defaults.smallBtn = true;
-    $.fancybox.defaults.live = false;
-    $.fancybox.defaults.zoom = false;
-    $.fancybox.defaults.clickContent = false;
-    $.fancybox.defaults.mobile.preventCaptionOverlap = false;
-    $.fancybox.defaults.mobile.toolbar = true;
-    $.fancybox.defaults.mobile.buttons = ['close'];
-    $.fancybox.defaults.mobile.clickSlide = 'close';
-    $.fancybox.defaults.mobile.clickContent = 'zoom';
-    $.fancybox.defaults.afterLoad = function(instance, slide) {
-    if (instance.current.type == 'image'){
-        slide.$content.wrapInner( "<div class='fancybox-image-wrap'></div>" )
-      }
-      if (instance.group.length > 1){
-        const svgArrowSizeRight = '<svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 62,90 L 22,50  L 62,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg>'
-        const svgArrowSizeLeft = '<svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 62,90 L 22,50  L 62,10 L 60,0 Z" class="arrow"></path></svg>'
-        slide.$content.find('.fancybox-image-wrap').append('<a title="Previous" class="fancybox-item fancybox-nav fancybox-prev" href="javascript:;" data-fancybox-prev><span>'+ svgArrowSizeLeft +'</span></a><a title="Next" class="fancybox-item fancybox-nav fancybox-next" href="javascript:;" data-fancybox-next><span>'+ svgArrowSizeRight +'</span></a>')
-      }
-    }
-    //backwards compatibility with custom lightboxes
-    $('.lightbox[rel="gallery"]').fancybox();
+    const $rootMain = $('.Gallery__main');
+    const btnPrev = `
+        <button class="slick-prev">
+          <svg width="10" height="10" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg>
+        </button>
+      `
+    const btnNext = `
+      <button class="slick-next">
+        <svg width="10" height="10" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg>
+      </button>
+    `
 
-    function isIE() {
-      const ua = window.navigator.userAgent;
-      const msie = ua.indexOf('MSIE ');
-      const trident = ua.indexOf('Trident/');
-
-      return (msie > 0 || trident > 0);
-    }
-
-    if (!isIE()) return;
-    const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
-    const noScriptInputWrapper = document.createElement('div');
-    const variantSwitcher = document.querySelector('variant-radios[data-section="{{ section.id }}"]') || document.querySelector('variant-selects[data-section="{{ section.id }}"]');
-    noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-{{ section.id }}').textContent;
-    variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
-
-    document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function(event) {
-      hiddenInput.value = event.currentTarget.value;
+    $rootMain.slick({
+      slide: '.slider-root',
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      fade: false,
+      adaptiveHeight: true,
+      infinite: true,
+      useTransform: true,
+      speed: 400,
+      cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+      prevArrow: btnPrev,
+      nextArrow: btnNext,
     });
+
+
+    const $rootNav = $('.Gallery__wrapper');
+    const length = $('.Gallery__wrapper .slider-nav').length
+    $rootNav.on('init', function(event, slick) {
+ 		  $(this).find('.slick-slide.slick-current').addClass('is-active');
+ 	  }).slick({
+      slide: '.slider-nav',
+      slidesToShow: length,
+      slidesToScroll: 1,
+      arrows: false,
+      dot: false,
+      infinite: false,
+    });
+
+    $rootMain.on('afterChange', function(event, slick, currentSlide) {
+      $rootNav.slick('slickGoTo', currentSlide);
+      $rootNav.find('.slick-slide.is-active').removeClass('is-active');
+      $rootNav.find('.slick-slide[data-slick-index="' + currentSlide + '"]').addClass('is-active');
+    });
+  
+    $rootNav.on('click', '.slick-slide', function(event) {
+      event.preventDefault();
+      var goToSingleSlide = $(this).data('slick-index');
+
+      $rootMain.slick('slickGoTo', goToSingleSlide);
+    });
+  //   $.fancybox.defaults.animationEffect = 'fade';
+  //   $.fancybox.defaults.transitionEffect = 'fade';
+  //   $.fancybox.defaults.hash = false;
+  //   $.fancybox.defaults.infobar = false;
+  //   $.fancybox.defaults.toolbar = false;
+  //   $.fancybox.defaults.arrows = false;
+  //   $.fancybox.defaults.loop = true;
+  //   $.fancybox.defaults.smallBtn = true;
+  //   $.fancybox.defaults.live = false;
+  //   $.fancybox.defaults.zoom = false;
+  //   $.fancybox.defaults.clickContent = false;
+  //   $.fancybox.defaults.mobile.preventCaptionOverlap = false;
+  //   $.fancybox.defaults.mobile.toolbar = true;
+  //   $.fancybox.defaults.mobile.buttons = ['close'];
+  //   $.fancybox.defaults.mobile.clickSlide = 'close';
+  //   $.fancybox.defaults.mobile.clickContent = 'zoom';
+  //   $.fancybox.defaults.afterLoad = function(instance, slide) {
+  //   if (instance.current.type == 'image'){
+  //       slide.$content.wrapInner( "<div class='fancybox-image-wrap'></div>" )
+  //     }
+  //     if (instance.group.length > 1){
+  //       const svgArrowSizeRight = '<svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 62,90 L 22,50  L 62,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg>'
+  //       const svgArrowSizeLeft = '<svg viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 62,90 L 22,50  L 62,10 L 60,0 Z" class="arrow"></path></svg>'
+  //       slide.$content.find('.fancybox-image-wrap').append('<a title="Previous" class="fancybox-item fancybox-nav fancybox-prev" href="javascript:;" data-fancybox-prev><span>'+ svgArrowSizeLeft +'</span></a><a title="Next" class="fancybox-item fancybox-nav fancybox-next" href="javascript:;" data-fancybox-next><span>'+ svgArrowSizeRight +'</span></a>')
+  //     }
+  //   }
+  //   //backwards compatibility with custom lightboxes
+  //   $('.lightbox[rel="gallery"]').fancybox();
+
+  //   function isIE() {
+  //     const ua = window.navigator.userAgent;
+  //     const msie = ua.indexOf('MSIE ');
+  //     const trident = ua.indexOf('Trident/');
+
+  //     return (msie > 0 || trident > 0);
+  //   }
+
+  //   if (!isIE()) return;
+  //   const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
+  //   const noScriptInputWrapper = document.createElement('div');
+  //   const variantSwitcher = document.querySelector('variant-radios[data-section="{{ section.id }}"]') || document.querySelector('variant-selects[data-section="{{ section.id }}"]');
+  //   noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-{{ section.id }}').textContent;
+  //   variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
+
+  //   document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function(event) {
+  //     hiddenInput.value = event.currentTarget.value;
+  //   });
   });
 </script>
 
