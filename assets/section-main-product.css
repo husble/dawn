@@ -739,7 +739,7 @@ a.product__text {
 
 .slick-prev {
   left: 6px !important;
-  z-index: 99;
+  z-index: 1;
   width: 30px !important;
   height: 30px !important;
   display: flex;
@@ -751,7 +751,7 @@ a.product__text {
 
 .slick-next {
   right: 6px !important;
-  z-index: 99;
+  z-index: 1;
   width: 30px !important;
   height: 30px !important;
   border-radius: 50%;

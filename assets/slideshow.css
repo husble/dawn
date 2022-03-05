@@ -51,4 +51,8 @@ img {
   .slideshow-banner {
     margin-top: 55px;
   }
+
+  .btn-arrow {
+    bottom: -20px;
+  }
 }
