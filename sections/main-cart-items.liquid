@@ -27,7 +27,7 @@
 
 {%endstyle%}
 <cart-items>
-  <form action="{{ routes.cart_url }}" id="main-cart-items-page" method="post" novalidate data-location="header" class="cart-page">
+  <form action="{{ routes.cart_url }}" id="main-cart-items-page" method="post" novalidate data-location="page" class="cart-page">
     <h1 class="cart__title">Cart</h1>
     <div class="js-contents-main">
       <div class="cart__main {% if cart.item_count == 0 %}cart-main-empty{% endif %}">
