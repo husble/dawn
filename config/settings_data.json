@@ -56,7 +56,7 @@
           "2d90410b-b32d-4b6f-82ff-9342a64b82eb": {
             "type": "menu",
             "settings": {
-              "title": "",
+              "title": "Our Policies",
               "menu": "footer",
               "enable_account_link": false
             }
@@ -91,7 +91,7 @@
           "c1bc1dc9-56b9-4c57-af98-1c25c89e6f20"
         ],
         "settings": {
-          "color_scheme": "background-1",
+          "color_scheme": "background-2",
           "newsletter_enable": false,
           "newsletter_heading": "Subscribe to our emails",
           "show_social": false,
