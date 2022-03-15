@@ -106,6 +106,16 @@
     },
     "loox-product-reviews-app-section": {
       "type": "apps",
+      "blocks": {
+        "e98e23a4-ba58-425f-a8f4-3b4468fd66c1": {
+          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "e98e23a4-ba58-425f-a8f4-3b4468fd66c1"
+      ],
       "settings": {
         "include_margins": false
       }
