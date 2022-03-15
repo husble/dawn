@@ -7,10 +7,18 @@
     "colors_outline_button_labels": "#121212",
     "colors_background_1": "#FFFFFF",
     "colors_background_2": "#F3F3F3",
-    "type_header_font": "assistant_n4",
-    "type_body_font": "assistant_n4",
+    "type_header_font": "poppins_n4",
+    "heading_scale": 100,
+    "type_body_font": "poppins_n4",
+    "body_scale": 100,
     "social_facebook_link": "https:\/\/www.facebook.com\/pawsionatecom",
     "social_instagram_link": "https:\/\/www.instagram.com\/pawsionate\/",
+    "favicon": "shopify:\/\/shop_images\/Favicon_23b4a20b-d7f1-4ea1-910e-11dcfe6174d9.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_559e69b0-bebf-4cb8-aff6-ccb974d43942.png",
+    "checkout_logo_position": "center",
+    "checkout_accent_color": "#ff8831",
+    "checkout_button_color": "#ff8831",
+    "checkout_error_color": "#ba4444",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -34,11 +42,11 @@
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo": "shopify:\/\/shop_images\/PrimaryLogo.png",
+          "logo": "shopify:\/\/shop_images\/logo_559e69b0-bebf-4cb8-aff6-ccb974d43942.png",
           "logo_width": 200,
           "logo_position": "middle-left",
           "menu": "main-menu",
-          "show_line_separator": true,
+          "show_line_separator": false,
           "enable_sticky_header": true
         }
       },
@@ -97,7 +105,6 @@
         "blocks": {
           "toolbar-0": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "richtext": "<p>Free shipping on all orders over $100<\/p>",
               "richtext_mobile": "<p>Free shipping on all orders over $100<\/p>"
