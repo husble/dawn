@@ -16,12 +16,12 @@
         "price": {
           "type": "price",
           "settings": {
-            "regular_price_color": "#000000",
+            "regular_price_color": "#757575",
             "regular_price_weight": "bold",
             "regular_price_size": "1em",
-            "final_price_color": "#000000",
+            "final_price_color": "#fa3900",
             "final_price_weight": "bold",
-            "final_price_size": "1.6em"
+            "final_price_size": "1.8em"
           }
         },
         "variant_picker": {
