@@ -18,8 +18,8 @@
             "button_color": "#000000",
             "text_align": "vertical-bottom horizontal-center",
             "margin_top_btn": 8,
-            "image": "shopify:\/\/shop_images\/Test-dog.png",
-            "image_mobile": "shopify:\/\/shop_images\/mobile_final_dog.jpg",
+            "image": "shopify:\/\/shop_images\/dog-desktop_8805005e-a7eb-4142-a170-7f22f7e581ad.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/dog-mobile.jpg",
             "overlay_opacity": 0,
             "focal_point": "center center"
           }
@@ -31,7 +31,7 @@
             "title": "",
             "title_size": 70,
             "subheading": "",
-            "link": "",
+            "link": "shopify:\/\/collections\/cat-lovers",
             "link_text": "",
             "link_2": "",
             "link_text_2": "",
@@ -39,8 +39,8 @@
             "button_color": "#000000",
             "text_align": "vertical-bottom horizontal-center",
             "margin_top_btn": 8,
-            "image": "shopify:\/\/shop_images\/CAT_PC_1920_JPG_HIGH.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/MOBILE-FINAL-CAT_2e56c585-84e7-4154-96b7-faa9d08a67ab.jpg",
+            "image": "shopify:\/\/shop_images\/cat-desktop.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/cat-mobile.jpg",
             "overlay_opacity": 0,
             "focal_point": "center center"
           }
