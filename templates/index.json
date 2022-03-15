@@ -66,13 +66,13 @@
         "title_color": "#654895",
         "header_center": true,
         "collection": "best-sellers",
-        "products_to_show": 5,
+        "products_to_show": 8,
         "show_view_all": true,
         "swipe_on_mobile": true,
         "image_ratio": "square",
         "show_secondary_image": true,
         "add_image_padding": false,
-        "show_image_outline": true,
+        "show_image_outline": false,
         "show_vendor": false,
         "link_btn": false,
         "link_btn_color": "#ff8831",
@@ -82,20 +82,23 @@
     },
     "featured_collections": {
       "type": "featured-collections",
+      "disabled": true,
       "blocks": {
         "5dd12871-8d3a-4f79-b5d5-9ebb3b3f6de5": {
           "type": "collection",
           "settings": {
             "collection": "apparel",
-            "title": "ggjgjh",
+            "title": "Apparel",
+            "image_cover": "shopify:\/\/shop_images\/1_2_a572224a-09cd-4db7-8d72-36d7cdae37dd.jpg",
             "collection_image_border_radius": 0
           }
         },
         "4b8a4fec-9e41-4aeb-a46e-fd4aff9614f2": {
           "type": "collection",
           "settings": {
-            "collection": "beer-and-dogs-collection",
-            "title": "klkl",
+            "collection": "mugs",
+            "title": "Mug",
+            "image_cover": "shopify:\/\/shop_images\/3_2_0a205f7c-8f32-44fe-9367-68d5143a63b6.jpg",
             "collection_image_border_radius": 0
           }
         },
@@ -141,8 +144,8 @@
         "e74ce10d-6db9-49b7-ae85-25c85e2259d2"
       ],
       "settings": {
-        "title": "Popular categories",
-        "title_collectionColor": "#ba2649",
+        "title": "Shop By Category",
+        "title_collectionColor": "#654895",
         "header_collectionCenter": true,
         "divider": false,
         "collection_padding_desktop": 10,
@@ -155,7 +158,7 @@
       "type": "husble-customization",
       "settings": {
         "header": "How To Customize Yours?",
-        "header_colors": "#ba2649",
+        "header_colors": "#654895",
         "header_Center": true,
         "image_1": "shopify:\/\/shop_images\/2_2.png",
         "title_1": "<p><strong>Step 1: Choose Product<\/strong><\/p>",
@@ -167,7 +170,7 @@
         "title_3": "<p><strong>Step 3: Place Your Order<\/strong><\/p>",
         "detail_3": "<p><em>Let's add to cart, process payments and wait for the final gifts to knock on your door!<\/em><\/p>",
         "url": "shopify:\/\/collections\/all",
-        "url_title": "Customize your now",
+        "url_title": "Customize yours now",
         "link_btn": true,
         "link_btn_color": "#ff8831"
       }
@@ -219,6 +222,25 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "1647311960476b5b33": {
+      "type": "main-collections",
+      "settings": {
+        "title": "Featured collection",
+        "title_color": "#000000",
+        "header_center": false,
+        "home_featured_products": "",
+        "count": 4,
+        "number_feature_on_row_desktop": 4,
+        "mobile_scrollable": true,
+        "scrollable_mobile_width": 60,
+        "view_all": true,
+        "link_btn": false,
+        "link_btn_color": "#ff8831",
+        "view_all_bottom": true,
+        "hide_rating": true,
+        "divider": false
+      }
     }
   },
   "order": [
@@ -228,6 +250,7 @@
     "16387862430f3985d3",
     "1638786555013217d7",
     "1638786611f269acec",
-    "163878671924ba9984"
+    "163878671924ba9984",
+    "1647311960476b5b33"
   ]
 }
