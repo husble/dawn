@@ -13,6 +13,11 @@
           "settings": {
           }
         },
+        "1a57c268-d541-4f58-8c5a-34f5e889e007": {
+          "type": "rating",
+          "settings": {
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -21,7 +26,7 @@
             "regular_price_size": "1em",
             "final_price_color": "#fa3900",
             "final_price_weight": "bold",
-            "final_price_size": "1.8em"
+            "final_price_size": "1.6em"
           }
         },
         "variant_picker": {
@@ -47,19 +52,12 @@
             "show_tab": true
           }
         },
-        "share": {
-          "type": "share",
-          "disabled": true,
-          "settings": {
-            "share_label": "Share"
-          }
-        },
         "73c68962-a8a6-4496-ac7d-8ad02e829f1a": {
           "type": "tab",
           "settings": {
             "heading": "Shipping information",
             "content": "",
-            "page": "shipping-information"
+            "page": "shipping-section"
           }
         },
         "a201606a-50e8-4544-9852-c9beeb94a00a": {
@@ -73,12 +71,12 @@
       },
       "block_order": [
         "title",
+        "1a57c268-d541-4f58-8c5a-34f5e889e007",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share",
         "73c68962-a8a6-4496-ac7d-8ad02e829f1a",
         "a201606a-50e8-4544-9852-c9beeb94a00a"
       ],
@@ -92,12 +90,12 @@
       "type": "product-recommendations",
       "settings": {
         "heading": "You may also like",
-        "image_ratio": "adapt",
-        "show_secondary_image": false,
+        "image_ratio": "square",
+        "show_secondary_image": true,
         "add_image_padding": false,
         "show_image_outline": true,
         "show_vendor": false,
-        "show_rating": false
+        "show_rating": true
       }
     },
     "recently-viewed": {
@@ -114,6 +112,7 @@
     },
     "zp-product-footer-content": {
       "type": "product-footer-content-zipifypages",
+      "disabled": true,
       "settings": {
       }
     }
