@@ -179,13 +179,13 @@
       "type": "featured-collection",
       "settings": {
         "title": "GIFTS FOR DOG LOVERS",
-        "title_color": "#ba2649",
+        "title_color": "#654895",
         "header_center": true,
-        "collection": "dog-lovers-gifts",
+        "collection": "dog-lovers",
         "products_to_show": 5,
         "show_view_all": true,
         "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "show_secondary_image": true,
         "add_image_padding": false,
         "show_image_outline": true,
@@ -200,9 +200,9 @@
       "type": "featured-collection",
       "settings": {
         "title": "GIFTS FOR CAT LOVERS",
-        "title_color": "#ba2649",
+        "title_color": "#654895",
         "header_center": true,
-        "collection": "cat-lover-christmas-gifts",
+        "collection": "cat-lovers",
         "products_to_show": 5,
         "show_view_all": true,
         "swipe_on_mobile": true,
@@ -216,31 +216,6 @@
         "view_all_bottom": true,
         "show_rating": false
       }
-    },
-    "163878671924ba9984": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "1647311960476b5b33": {
-      "type": "main-collections",
-      "settings": {
-        "title": "Featured collection",
-        "title_color": "#000000",
-        "header_center": false,
-        "home_featured_products": "",
-        "count": 4,
-        "number_feature_on_row_desktop": 4,
-        "mobile_scrollable": true,
-        "scrollable_mobile_width": 60,
-        "view_all": true,
-        "link_btn": false,
-        "link_btn_color": "#ff8831",
-        "view_all_bottom": true,
-        "hide_rating": true,
-        "divider": false
-      }
     }
   },
   "order": [
@@ -249,8 +224,6 @@
     "featured_collections",
     "16387862430f3985d3",
     "1638786555013217d7",
-    "1638786611f269acec",
-    "163878671924ba9984",
-    "1647311960476b5b33"
+    "1638786611f269acec"
   ]
 }
