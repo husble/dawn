@@ -1541,7 +1541,6 @@ details[open] > .share-button__fallback {
   color: rgba(var(--color-foreground), 0.75);
 }
 
-.field__input:hover,
 .select__select:hover,
 .customer .field input:hover,
 .customer select:hover,
@@ -1549,13 +1548,14 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 0.2rem rgba(var(--color-foreground), 0.55);
 }
 
-.field__input:focus,
+.field__input:focus {
+  outline: transparent;
+}
 .select__select:focus,
 .customer .field input:focus,
 .customer select:focus,
 .localization-form__select:focus {
   box-shadow: 0 0 0 0.2rem rgba(var(--color-foreground), 0.75);
-  outline: transparent;
 }
 
 .text-area,
@@ -2375,7 +2375,7 @@ details[open] .modal-overlay::after {
 }
 
 .search__input.field__input {
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 /* Header menu drawer */
@@ -2539,7 +2539,6 @@ details-disclosure > details {
 
 .search-mobile > div {
   flex: 1 1 auto;
-  margin-right: 20px;
 }
 
 .search-mobile.open {
@@ -2552,8 +2551,8 @@ details-disclosure > details {
 }
 
 .icon-search-mobile--close {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   display: none;
 }
 
@@ -2624,7 +2623,7 @@ h2 {
 @media screen and (max-width: 500px) {
 
   .search-mobile {
-    padding: 10px 1rem;
+    padding: 10px 1.5rem;
   }
   .spaced-section {
     margin-top: 3rem;
@@ -2641,7 +2640,7 @@ h2 {
 
 @media screen and (min-width: 320px) {
   .header__top {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
 }
 

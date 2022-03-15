@@ -599,6 +599,10 @@ noscript .localization-selector.link {
   vertical-align: middle;
   fill: currentColor;
 }
+.icon-search-mobile--close.icon {
+  width: 50px;
+  height: 10px;
+}
 
 .footer__social li {
   display: inline-block;
