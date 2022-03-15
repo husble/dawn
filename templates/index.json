@@ -62,10 +62,10 @@
     "featured_products": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "title_color": "#ba2649",
+        "title": "Pet Parent Favorites",
+        "title_color": "#654895",
         "header_center": true,
-        "collection": "all",
+        "collection": "best-sellers",
         "products_to_show": 5,
         "show_view_all": true,
         "swipe_on_mobile": true,
