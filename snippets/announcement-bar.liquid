@@ -14,10 +14,29 @@
   }
   .announcement-bar{
     font-size: {{section.settings.mobile_font_size}}px;
+    font-weight: 700;
+    padding: 4px 0;
   }
+  .announcement-slider__content .medium-up--hide {
+    display: none;
+  }
+
+  .announcement-slider__content .small--hide {
+    display: block;
+  }
+
   @media screen and (min-width:769px){
     .announcement-bar{
       font-size: {{section.settings.desktop_font_size}}px;
+      font-weight: 700;
+      padding: 4px 0;
+    }
+    .announcement-slider__content .medium-up--hide {
+      display: block;
+    }
+  
+    .announcement-slider__content .small--hide {
+      display: none;
     }
   }
 {%- endstyle -%}
@@ -52,10 +71,10 @@
                 <div class="announcement-slider__content" style="margin:auto 0">
                   {%- if block.settings.richtext_mobile != blank -%}
                     <div class="medium-up--hide">
-                      {{ block.settings.richtext_mobile }}
+                      {{ block.settings.richtext }}
                     </div>
                     <div class="small--hide">
-                      {{ block.settings.richtext }}
+                      {{ block.settings.richtext_mobile }}
                     </div>
                   {%- else -%}
                     {{ block.settings.richtext }}

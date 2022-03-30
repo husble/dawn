@@ -13,6 +13,10 @@
     margin-top: 0;
   }
 
+  .facets-container {
+    padding: 0 50px;
+  }
+
   .facets__form .product-count {
     grid-column-start: 3;
     align-self: flex-start;
@@ -87,6 +91,7 @@
   margin: 0;
   padding-left: 0;
   padding-right: 1.75rem;
+  width: 200px;
 }
 
 @media screen and (forced-colors: active) {
