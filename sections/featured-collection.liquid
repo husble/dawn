@@ -25,6 +25,13 @@
       text-align: left;
     {% endif %}
   }
+
+  @media screen and (max-width:768px){
+    .grid__item.slider__slide {
+      width: {{section.settings.width_mobile}}%;
+      max-width: {{section.settings.width_mobile}}%;
+    }
+  }
 {% endstyle %}
 <div class="collection page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 %} page-width-desktop{% endif %}">
   <div class="title-wrapper-with-link{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %}">
@@ -42,7 +49,7 @@
             add_image_padding: section.settings.add_image_padding,
             show_vendor: section.settings.show_vendor,
             show_image_outline: section.settings.show_image_outline,
-            show_rating: section.settings.show_rating
+            show_rating: section.settings.show_rating,
           %}
         </li>
       {%- else -%}
@@ -161,6 +168,12 @@
       "id": "swipe_on_mobile",
       "default": false,
       "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
+    },
+    {
+      "type": "number",
+      "id": "width_mobile",
+      "label": "scrollable mobile width (%)",
+      "default": 80
     },
     {
       "type": "header",
