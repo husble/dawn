@@ -323,3 +323,9 @@
     padding: 3rem 3rem 0;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .card-information__text {
+    font-size: 15px;
+  }
+}

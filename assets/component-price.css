@@ -94,3 +94,13 @@
     margin-bottom: 0;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .price .price-item.price-item--sale {
+    font-size: 18px;
+  }
+  
+  .price .price-item.price-item--sale > span {
+    font-size: 10px;
+  }
+}

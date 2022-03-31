@@ -518,6 +518,9 @@
         "products_to_show": {
           "label": "Maximum products to show"
         },
+        "number_show_in_desktop": {
+          "label": "number feature on row desktop"
+        },
         "show_view_all": {
           "label": "Enable \"View all\" button if collection has more products than shown"
         },

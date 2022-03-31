@@ -576,11 +576,15 @@
                     </li>
                   {%- endfor -%}
                 </ul>
+                <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu-item--link link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
+                  <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                  {% render 'icon-menu' %}
+                </a>
               {%- else -%}
+                <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu-item--link link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
+                  <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                </a>
               {%- endif -%}
-              <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu-item--link link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
-                <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
-              </a>
             </li>
           {%- endfor -%}
         </ul>

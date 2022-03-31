@@ -164,4 +164,12 @@ slider-component {
   .slider-button--next {
     right: 0;
   }
+
+  slider-component {
+    padding: 0;
+  }
+
+  .product-grid .grid__item {
+    padding-bottom: 0;
+  }
 }

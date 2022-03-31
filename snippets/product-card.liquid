@@ -24,11 +24,11 @@
       {%- endif -%}
 
       {%- if product_card_product.featured_media -%}
-        <h3 class="card-information__text h5">
+        <p class="card-information__text">
           <a href="{{ product_card_product.url | default: '#' }}" class="full-unstyled-link">
             {{ product_card_product.title | escape }}
           </a>
-        </h3>
+        </p>
       {%- endif -%}
 
       {% comment %} TODO: metafield {% endcomment %}
