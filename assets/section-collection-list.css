@@ -61,7 +61,7 @@
   }
 
   .collection-list.grid--3-col-tablet .grid__item {
-    max-width: 33.33%;
+    max-width: 25%;
   }
 
   .collection-list--4-items .grid__item,
