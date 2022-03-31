@@ -68,7 +68,7 @@
         "collection": "best-sellers",
         "products_to_show": 8,
         "show_view_all": true,
-        "swipe_on_mobile": true,
+        "swipe_on_mobile": false,
         "image_ratio": "square",
         "show_secondary_image": true,
         "add_image_padding": false,
