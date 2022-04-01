@@ -45,6 +45,18 @@
         "label": "t:settings_schema.colors.settings.gradient_accent_2.label"
       },
       {
+        "id": "color_price",
+        "type": "color",
+        "label": "t:settings_schema.colors.settings.color_price.label",
+        "default": "#6E6E6E"
+      },
+      {
+        "id": "color_save_price",
+        "type": "color",
+        "label": "t:settings_schema.colors.settings.color_save_price.label",
+        "default": "#FA3900"
+      },
+      {
         "type": "header",
         "content": "t:settings_schema.colors.settings.header__2.content"
       },

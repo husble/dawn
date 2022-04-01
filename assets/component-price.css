@@ -20,7 +20,7 @@
 .price .price-item.price-item--sale {
   margin: 0 1rem 0 0;
   font-size: 20px;
-  color: #fa3900;
+  color: var(--color-save-price);
 }
 
 .price .price-item.price-item--sale > span {
@@ -70,7 +70,7 @@
 
 .price--on-sale .price-item--regular {
   text-decoration: line-through;
-  color: rgba(var(--color-foreground), 0.75);
+  color: var(--color-price);
   font-size: 1.3rem;
 }
 

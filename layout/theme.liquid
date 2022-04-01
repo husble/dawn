@@ -79,6 +79,8 @@
 
         --page-width: {{ settings.page_width | divided_by: 10 }}rem;
         --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+        --color-price: {{ settings.color_price }};
+        --color-save-price: {{ settings.color_save_price }};
       }
 
       *,
