@@ -21,6 +21,11 @@ quickshop: <boolean>
 }
 
 @media only screen and (max-width: 768px) {
+
+  .mainImage {
+    position: relative;
+  }
+
   .Gallery__thumbs {
       overflow: scroll;
   }
@@ -36,6 +41,120 @@ quickshop: <boolean>
     display: inline-block;
     width: 20%;
     margin-right: 0.5em;
+  }
+
+  .zoom__slick {
+    position: absolute;
+    background-color: #ff8331;
+    color: #fff;
+    padding: 8px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 15%);
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .zoom__slick svg {
+    width: 27px;
+    height: 27px;
+    fill: currentColor;
+  }
+
+  .zoom__slick svg .cls-1 {
+    stroke: #fff;
+    stroke-width: 4px;
+  }
+
+  /* main zoom */
+  .mainImage__Zoom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .mainImage__Zoom.active {
+    display: block;
+  }
+
+  .bg__zoom {
+    position: absolute;
+    top: 0;
+    display: block !important;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background-color: #fff;
+  }
+
+  .Gallery__main--zoom {
+    z-index: 100;
+  }
+
+  .Gallery__main--zoom .slick-prev {
+    bottom: 10px;
+    top: auto;
+    left: calc(50% - 60px) !important;
+    transform: translateX(-50%);
+  }
+
+  .Gallery__main--zoom .slick-next {
+    bottom: 10px;
+    top: auto;
+    right: calc(50% - 60px) !important;
+    transform: translateX(50%);
+  }
+  
+  .Gallery__main--zoom .slick-arrow {
+    width: 45px !important;
+    height: 45px !important;
+    background-color: #fff;
+    border-radius: 10px !important;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 15%);
+  }
+
+  .Gallery__main--zoom .slick-arrow svg {
+    width: 15px !important;
+    height: 15px !important; 
+  }
+
+  .Gallery__main--zoom .close__zoom {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 15%);
+    z-index: 100;
+  }
+
+  .Gallery__main--zoom .close__zoom svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .Gallery__main--zoom .close__zoom svg path {
+    stroke: #000;
+    stroke-width: 4px;
   }
 }
 {% endstyle %}
@@ -88,6 +207,9 @@ quickshop: <boolean>
       {% endfor %}
     {% endif %}
   </figure>
+  <div class="zoom__slick">
+    {% render 'icon-zoomMobile' %}
+  </div>
 </div>
 
 <div class="Gallery__thumbs">
@@ -119,5 +241,42 @@ quickshop: <boolean>
         {% endif %}
       {% endfor %}
     {% endif %}
+  </div>
+</div>
+<div class="mainImage__Zoom">
+  <div style="display: block;">
+    <div class="bg__zoom"></div>
+    <figure class="Gallery__main--zoom">
+      {% if product.media.size > 1 %}
+        {% for media in product.media %}
+          <div
+            href="{{ media | img_url: '5000x' }}"
+            class="slider-root--zoom"
+            tabindex="0"
+            data-title="{{ image_alt | escape }}"
+            style="display: block;"
+          >
+  
+            <img loading="lazy" src="{{ media | img_url: '490x' }}" alt="">
+            {% if thumbnail_badge == 'video-thumbnail' %}
+              <svg class="media-badge" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 25H25V1H1V25Z" fill="white"/><path class="media-badge__outline" d="M0.5 25V25.5H1H25H25.5V25V1V0.5H25H1H0.5V1V25Z" stroke="black" stroke-opacity="0.05"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.19995 5.8V20.2L19.3999 12.5858L8.19995 5.8Z" fill="#3A3A3A" fill-opacity="0.6"/></svg>
+            {% elsif thumbnail_badge == '3d-thumbnail' %}
+              <svg class="media-badge" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 25H25V1H1V25Z" fill="white"/><path class="media-badge__outline" d="M0.5 25V25.5H1H25H25.5V25V1V0.5H25H1H0.5V1V25Z" stroke="black" stroke-opacity="0.05"/><g opacity="0.6"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 6L19.0622 9.5V16.5L13 20L6.93782 16.5V9.5L13 6Z" stroke="#3A3A3A" stroke-width="1.5"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13 20V12.6024C13.6225 12.2002 13.6225 12.2002 13.6225 12.2002L19 9V16.4082L13 20Z" fill="#3A3A3A"/></g></svg>
+            {% endif %}
+          </div>
+  
+          {% if media.media_type contains 'video' %}
+            {% assign thumbnail_badge = 'video-thumbnail' %}
+          {% elsif media.media_type contains 'model' %}
+            {% assign thumbnail_badge = '3d-thumbnail' %}
+          {% else %}
+            {% assign thumbnail_badge = '' %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      <div class="close__zoom">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"></path></svg>
+      </div>
+    </figure>
   </div>
 </div>

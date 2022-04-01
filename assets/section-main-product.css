@@ -740,8 +740,8 @@ a.product__text {
 .slick-prev {
   left: 6px !important;
   z-index: 1;
-  width: 30px !important;
-  height: 30px !important;
+  width: 40px !important;
+  height: 40px !important;
   display: flex;
   border-radius: 50% !important;
   align-items: center;
@@ -752,8 +752,8 @@ a.product__text {
 .slick-next {
   right: 6px !important;
   z-index: 1;
-  width: 30px !important;
-  height: 30px !important;
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 50%;
   display: flex !important;
   align-items: center;
@@ -764,6 +764,11 @@ a.product__text {
 .slick-prev::before,
 .slick-next::before {
   display: none;
+}
+
+.slick-arrow svg {
+  width: 35%;
+  height: 35%;
 }
 
 .slider-nav.is-active {

@@ -99,6 +99,27 @@
       padding: 44px;
     }
   }
+
+  @media only screen and (min-width: 769px) {
+    .slick-dots {
+      display: none !important;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .Gallery__thumbs {
+      display: none;
+    }
+
+    .slick-dots li.slick-active button::before {
+      font-size: 35px;
+      opacity: 1;
+    }
+
+    .slick-dots li button::before {
+      font-size: 30px;
+    }
+  }
 {% endstyle %}
 
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
@@ -583,8 +604,8 @@
       cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
       prevArrow: btnPrev,
       nextArrow: btnNext,
+      dots: true,
     });
-
 
     const $rootNav = $('.Gallery__wrapper');
     const length = $('.Gallery__wrapper .slider-nav').length
@@ -595,12 +616,15 @@
       slidesToShow: length,
       slidesToScroll: 1,
       arrows: false,
-      dot: false,
+      dots: false,
       infinite: false,
     });
 
+    let initZoom
+    let $rootMainZoom
     $rootMain.on('afterChange', function(event, slick, currentSlide) {
       $rootNav.slick('slickGoTo', currentSlide);
+      initZoom = currentSlide
       $rootNav.find('.slick-slide.is-active').removeClass('is-active');
       $rootNav.find('.slick-slide[data-slick-index="' + currentSlide + '"]').addClass('is-active');
     });
@@ -611,6 +635,51 @@
 
       $rootMain.slick('slickGoTo', goToSingleSlide);
     });
+
+    $(".zoom__slick").on('click', () => {
+      $(".mainImage__Zoom").addClass('active')
+      $rootMainZoom = $('.Gallery__main--zoom');
+
+      $rootMainZoom.slick({
+        slide: '.slider-root--zoom',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: false,
+        adaptiveHeight: true,
+        infinite: true,
+        useTransform: true,
+        speed: 400,
+        cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+        prevArrow: btnPrev,
+        nextArrow: btnNext,
+        initialSlide: initZoom,
+      });
+
+      $rootMainZoom.on('afterChange', function(event, slick, currentSlide) {
+        $rootMain.slick('slickGoTo', currentSlide);
+      })
+
+      const top = (window.innerHeight - $(".Gallery__main--zoom").height()) / 2
+      $(".mainImage__Zoom").css('top', `${top}px`)
+      $(".bg__zoom").css('top', `${-top}px`)
+      $('body').css("overflow", 'hidden')
+    })
+
+    document.addEventListener('keydown', (e) => {
+
+      if (e.code === "Escape") {
+        $('body').css("overflow", 'initial')
+        $(".mainImage__Zoom").removeClass('active')
+        $rootMainZoom.slick('unslick')
+      }
+    })
+
+    $(".close__zoom").on('click', () => {
+      $('body').css("overflow", 'initial')
+      $(".mainImage__Zoom").removeClass('active')
+      $rootMainZoom.slick('unslick')
+    })
   //   $.fancybox.defaults.animationEffect = 'fade';
   //   $.fancybox.defaults.transitionEffect = 'fade';
   //   $.fancybox.defaults.hash = false;
