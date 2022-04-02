@@ -25,6 +25,10 @@ quickshop: <boolean>
   .mainImage__Zoom {
     display: none;
   }
+
+  .zoom__slick {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -184,7 +188,7 @@ quickshop: <boolean>
   Adjust your photo<span>(</span>s<span>)</span> with the buttons below:
 </div>
 
-<div class="mainImage">
+<div class="mainImage product-slideshow">
   <figure class="Gallery__main">
     {% if product.media.size > 1 %}
       {% for media in product.media %}

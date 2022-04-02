@@ -634,6 +634,7 @@
       var goToSingleSlide = $(this).data('slick-index');
 
       $rootMain.slick('slickGoTo', goToSingleSlide);
+      $(".Gallery__main").css('z-index', 9999)
     });
 
     $(".zoom__slick").on('click', () => {
