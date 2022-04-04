@@ -1009,3 +1009,17 @@ a.product__text {
     padding: 0 1rem;
   }
 }
+
+<!-- Judge me -->
+      @media screen and (min-width: 800px) {
+.jdgm-rev.jdgm-rev {
+    width: calc(25% - 15px) !important;
+    }
+}
+    @media only screen and (max-width: 767px) {
+.jdgm-rev-widg {
+  max-width: 90vw !important;
+  margin: auto;
+}
+}
+<!-- Judge me -->
