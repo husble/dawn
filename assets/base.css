@@ -2711,7 +2711,7 @@ h2 {
   }
 }
   
-  <!-- Judge me Custom CSS -->  
+  
     @media screen and (min-width: 800px) {
 .jdgm-rev.jdgm-rev {
     width: calc(25% - 15px) !important;
@@ -2744,4 +2744,3 @@ h2 {
 }
   }
     
-<!-- End of Judge me Custom CSS -->  
