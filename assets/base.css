@@ -2710,3 +2710,38 @@ h2 {
     stroke: CanvasText;
   }
 }
+  
+  <!-- Judge me Custom CSS -->  
+    @media screen and (min-width: 800px) {
+.jdgm-rev.jdgm-rev {
+    width: calc(25% - 15px) !important;
+    }
+}
+    
+    #judgeme_all_reviews_page, #judgeme_product_reviews {
+  max-width: 1500px;
+  margin: auto;
+}
+    .jdgm-widget label {
+  text-transform: uppercase;
+}
+    .jdgm-carousel-item__product {
+      height: 80% !important;
+      width: auto !important;
+    }
+    .jdgm-carousel-wrapper .jdgm-carousel-item__review{
+      height: auto !important;
+    }
+    .jdgm-carousel-wrapper {
+      padding-top: 0px !important;
+    }
+    .jdgm-carousel-title {
+      color: #D9355F;
+    }
+@media only screen and (min-width: 768px) {
+.jdgm-carousel-wrapper {
+     width: 100% !important;
+}
+  }
+    
+<!-- End of Judge me Custom CSS -->  
