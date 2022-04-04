@@ -188,7 +188,7 @@
         "number_show_in_desktop": 5,
         "show_view_all": true,
         "swipe_on_mobile": true,
-        "width_mobile": 60,
+        "width_mobile": 80,
         "image_ratio": "square",
         "show_secondary_image": true,
         "add_image_padding": false,

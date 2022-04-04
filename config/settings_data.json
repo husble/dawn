@@ -107,8 +107,8 @@
           "toolbar-0": {
             "type": "announcement",
             "settings": {
-              "richtext": "<p>Free shipping on all orders over $100<\/p>",
-              "richtext_mobile": "<p>Free shipping on all orders over $100<\/p>"
+              "richtext": "<p>Free shipping for orders over $100<\/p>",
+              "richtext_mobile": "<p>Free shipping for orders over $100<\/p>"
             }
           }
         },
