@@ -14,6 +14,7 @@
     "social_facebook_link": "https:\/\/www.facebook.com\/pawsionatecom",
     "social_instagram_link": "https:\/\/www.instagram.com\/pawsionate\/",
     "favicon": "shopify:\/\/shop_images\/Favicon_23b4a20b-d7f1-4ea1-910e-11dcfe6174d9.png",
+    "currency_code_enabled": true,
     "checkout_logo_image": "shopify:\/\/shop_images\/logo_559e69b0-bebf-4cb8-aff6-ccb974d43942.png",
     "checkout_logo_position": "center",
     "checkout_accent_color": "#ff8831",

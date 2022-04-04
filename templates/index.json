@@ -59,6 +59,29 @@
         "autoplay_speed": 7
       }
     },
+    "1638786555013217d7": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "BEST SELLERS",
+        "title_color": "#654895",
+        "header_center": true,
+        "collection": "best-sellers",
+        "products_to_show": 8,
+        "number_show_in_desktop": 4,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "width_mobile": 80,
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "link_btn": false,
+        "link_btn_color": "#ff8831",
+        "view_all_bottom": true,
+        "show_rating": false
+      }
+    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
@@ -177,29 +200,6 @@
         "link_btn_color": "#ff8831"
       }
     },
-    "1638786555013217d7": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "GIFTS FOR DOG LOVERS",
-        "title_color": "#654895",
-        "header_center": true,
-        "collection": "dog-lovers",
-        "products_to_show": 5,
-        "number_show_in_desktop": 5,
-        "show_view_all": true,
-        "swipe_on_mobile": false,
-        "width_mobile": 80,
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_image_outline": true,
-        "show_vendor": false,
-        "link_btn": false,
-        "link_btn_color": "#ff8831",
-        "view_all_bottom": true,
-        "show_rating": false
-      }
-    },
     "1638786611f269acec": {
       "type": "featured-collection",
       "settings": {
@@ -226,10 +226,10 @@
   },
   "order": [
     "slideshow",
+    "1638786555013217d7",
     "featured_products",
     "featured_collections",
     "16387862430f3985d3",
-    "1638786555013217d7",
     "1638786611f269acec"
   ]
 }
