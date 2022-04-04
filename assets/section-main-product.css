@@ -1010,7 +1010,6 @@ a.product__text {
   }
 }
 
-<!-- Judge me -->
       @media screen and (min-width: 800px) {
 .jdgm-rev.jdgm-rev {
     width: calc(25% - 15px) !important;
@@ -1022,4 +1021,3 @@ a.product__text {
   margin: auto;
 }
 }
-<!-- Judge me -->
