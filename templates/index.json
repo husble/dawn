@@ -223,14 +223,51 @@
         "show_rating": false
       }
     },
+    "1649065311ab6a109a": {
+      "type": "rich-text",
+      "blocks": {
+        "16490653116286fdc9-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let customers speak for us",
+            "heading_size": "h2"
+          }
+        },
+        "16490653116286fdc9-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "16490653116286fdc9-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "16490653116286fdc9-0",
+        "16490653116286fdc9-1",
+        "16490653116286fdc9-2"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
     "16490605759fa08604": {
       "type": "apps",
       "blocks": {
         "155a145c-e268-42a2-a9a5-5a0bf0768fd3": {
           "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/featured_carousel\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
-            "maxwidth": 1080,
-            "show_header": true,
+            "maxwidth": 1500,
+            "show_header": false,
             "enable_link": true,
             "all_reviews_link": "pages\/reviews"
           }
@@ -251,6 +288,7 @@
     "16387862430f3985d3",
     "featured_products",
     "1638786611f269acec",
+    "1649065311ab6a109a",
     "16490605759fa08604"
   ]
 }
