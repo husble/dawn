@@ -1944,8 +1944,8 @@ input[type='checkbox'] {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.9rem;
-  bottom: 1.8rem;
+  font-size: 12px;
+  bottom: 1.2rem;
   left: 1.4rem;
   line-height: calc(1 + 0.1 / var(--font-body-scale));
 }
@@ -1957,7 +1957,7 @@ input[type='checkbox'] {
 }
 
 .cart-count-bubble span {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -2205,6 +2205,8 @@ input[type='checkbox'] {
 @media screen and (max-width: 768px) {
   .header__icons {
     padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
@@ -2403,6 +2405,10 @@ details[open] .modal-overlay::after {
 
 .search__input.field__input {
   border-radius: 30px;
+}
+
+.search__input.field__input::placeholder {
+  font-weight: bold;
 }
 
 /* Header menu drawer */
