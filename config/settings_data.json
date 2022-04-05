@@ -121,7 +121,7 @@
           "show_locale_selector": true,
           "show_currency_selector": true,
           "desktop_font_size": 14,
-          "mobile_font_size": 10,
+          "mobile_font_size": 13,
           "background_color": "#654895"
         }
       }
