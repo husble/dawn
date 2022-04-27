@@ -175,12 +175,12 @@
       },
       "max_price": "The highest price is {{ price }}",
       "product_count": {
-        "one": "{{ product_count }} of {{ count }} product",
-        "other": "{{ product_count }} of {{ count }} products"
+        "one": "{{ product_count }}",
+        "other": "{{ product_count }}"
       },
       "product_count_simple": {
-        "one": "{{ count }} product",
-        "other": "{{ count }} products"
+        "one": "{{ count }}",
+        "other": "{{ count }}"
       },
       "reset": "Reset",
       "sort_button": "Sort",
@@ -503,6 +503,31 @@
       "signup_form_email_label": "Email",
       "signup_form_success": "We will send you an email right before we open!",
       "password_link": "Enter using password"
+    }
+  },
+  "collections": {
+    "general": {
+      "catalog_title": "Catalog",
+      "all_of_collection": "View all",
+      "view_all_products_html": "View all<br>{{ count }} products",
+      "see_more": "Show more",
+      "see_less": "Show less",
+      "no_matches": "Sorry, there are no products in this collection.",
+      "large": "Large",
+      "small": "Small",
+      "list": "List",
+      "items_with_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      }
+    },
+    "sorting": {
+      "title": "Sort"
+    },
+    "filters": {
+      "title_tags": "Filter",
+      "all_tags": "All products",
+      "categories_title": "Categories"
     }
   }
 }

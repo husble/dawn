@@ -8,7 +8,7 @@
   margin-bottom: 0.5rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .facets-container > * + * {
     margin-top: 0;
   }
@@ -84,7 +84,7 @@
 }
 
 .facet-filters__sort {
-  border: 0;
+  /* border: 0; */
   font-size: 1.4rem;
   height: auto;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
@@ -92,6 +92,10 @@
   padding-left: 0;
   padding-right: 1.75rem;
   width: 200px;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.233);
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
 @media screen and (forced-colors: active) {
@@ -106,39 +110,36 @@
 }
 
 .mobile-facets__sort .select__select:focus-visible {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
-  outline-offset: 0.3rem;
-  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
-    0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none
 }
 
 .mobile-facets__sort .select__select.focused,
 .no-js .mobile-facets__sort .select__select:focus {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
-  outline-offset: 0.3rem;
-  box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
-    0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none
 }
 
 .facet-filters__sort:focus-visible {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
-  outline-offset: 1rem;
-  box-shadow: 0 0 0 1rem rgb(var(--color-background)),
-    0 0 0.2rem 1.2rem rgba(var(--color-foreground), 0.3);
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none
 }
 
 .facet-filters__sort.focused,
 .no-js .facet-filters__sort:focus {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
-  outline-offset: 1rem;
-  box-shadow: 0 0 0 1rem rgb(var(--color-background)),
-    0 0 0.2rem 1.2rem rgba(var(--color-foreground), 0.3);
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none
 }
 
 .no-js .facet-filters__sort:focus:not(:focus-visible),
 .no-js .mobile-facets__sort .select__select:focus:not(:focus-visible) {
   outline: 0;
   box-shadow: none;
+  outline-offset: 0;
 }
 
 .facet-filters__sort + .icon-caret {
@@ -154,7 +155,7 @@
   display: grid;
   gap: 0 3.5rem;
   grid-template-columns: 1fr max-content max-content;
-  margin-bottom: 0.5rem;
+  margin: 16px 0 21px;
 }
 
 .facets__wrapper {
@@ -184,8 +185,9 @@
 .facets__summary {
   color: rgba(var(--color-foreground), 0.75);
   font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  padding: 0 1.75rem 0 0;
+  padding: 4px 1.75rem 4px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.329);
+  border-radius: 4px;
 }
 
 .facets__disclosure[open] .facets__summary,
@@ -197,14 +199,14 @@
   animation: animateMenuOpen var(--duration-default) ease;
 }
 
-.facets__summary span {
+/* .facets__summary span {
   transition: text-decoration var(--duration-short) ease;
-}
+} */
 
-.facets__summary:hover span {
+/* .facets__summary:hover span {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-}
+} */
 
 .disclosure-has-popup[open] > .facets__summary::before {
   z-index: 2;
@@ -405,6 +407,7 @@ span.active-facets__button-inner {
   .active-facets__button-remove {
     margin: 0;
     padding: 1.2rem;
+    font-weight: bold;
   }
 
   span.active-facets__button-inner {
@@ -514,13 +517,13 @@ a.active-facets__button.focused .active-facets__button-inner,
 
 .mobile-facets__inner {
   background-color: rgb(var(--color-background));
-  width: calc(100% - 5rem);
+  width: calc(100%);
   margin-left: auto;
   height: 100%;
   overflow-y: auto;
   pointer-events: all;
   transition: transform var(--duration-short) ease;
-  max-width: 37.5rem;
+  /* max-width: 37.5rem; */
   display: flex;
   flex-direction: column;
 }
@@ -615,10 +618,10 @@ a.active-facets__button.focused .active-facets__button-inner,
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 0.7rem;
+  top: 10px;
   right: 1rem;
-  width: 4.4rem;
-  height: 4.4rem;
+  width: 15px;
+  height: 15px;
   z-index: 101;
   opacity: 0;
   transition: opacity var(--duration-short) ease;
@@ -660,7 +663,7 @@ details.menu-opening .mobile-facets__close svg {
 }
 
 .mobile-facets__main {
-  padding: 2.7rem 0 0;
+  padding: 20px;
   position: relative;
   z-index: 1;
   flex-grow: 1;
@@ -848,11 +851,15 @@ input.mobile-facets__checkbox {
   position: relative;
   text-align: right;
 }
+.product-count strong {
+  margin: 0;
+}
 
 .product-count__text {
-  font-size: 1.4rem;
+  font-size: 15px;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   margin: 0;
+  text-align: left;
 }
 
 .product-count__text.loading {
@@ -870,4 +877,106 @@ input.mobile-facets__checkbox {
 
 .product-count__text.loading + .loading-overlay__spinner {
   display: block;
+}
+
+#FacetFiltersFormTest {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+
+  .facets-container {
+    padding: 0 20px;
+  }
+
+  .mobile-facets__main {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .mobile-facets__heading {
+    font-size: 20px;
+  }
+
+  #FacetFiltersFormTest {
+    display: block;
+  }
+
+  .product-count.medium-hide {
+    display: none;
+  }
+
+  .form__mobile {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mobile-facets__open {
+    font-weight: bold;
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    line-height: inherit;
+    font-size: 13px;
+  }
+}
+
+.active-facets__button-inner {
+  line-height: inherit;
+}
+
+.facet-filters .select::after {
+  top: 7px;
+}
+
+#FacetFiltersFormTest .select::after {
+  top: 2px;
+}
+
+@media screen and (max-width: 500px) {
+  
+  
+  .facets-container {
+    column-gap: 0;
+  }
+  
+  .mobile-facets__summary {
+    padding: 0;
+  }
+
+  .mobile-facets__sort .select__select {
+    width: 150px;
+  }
+
+  .mobile-facets__sort .select__select::after {
+    top: 4px;
+    right: 5px;
+  }
+
+  .facet-filters__sort {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .grid--2-col .grid__item {
+    width: calc(50% - 1rem / 2);
+  }
+
+  .mobile-facets__open {
+    font-weight: bold;
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    line-height: inherit;
+    font-size: 13px;
+  }
+
+  /* .mobile-facets__wrapper {
+    display: none;
+  }
+
+  .facets.small-hide {
+    display: grid !important;
+  } */
 }

@@ -2653,6 +2653,13 @@ h2 {
   }
 }
 
+@media screen and (max-width: 768px) {
+
+  .search-mobile {
+    top: 10px;
+  }
+}
+
 @media screen and (max-width: 500px) {
 
   .search-mobile {
